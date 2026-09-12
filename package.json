@@ -2,6 +2,7 @@
   "name": "vedasync",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@9.15.0",
   "imports": {
     "#/*": "./src/*"
   },
@@ -64,7 +65,10 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
-      "lightningcss"
+      "lightningcss",
+      "@prisma/engines",
+      "prisma",
+      "unrs-resolver"
     ]
   }
 }

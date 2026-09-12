@@ -13,3 +13,11 @@ __unconfig*
 todos.json
 
 /src/generated/prisma
+
+# IDE and AI tools
+.agents/
+.claude/
+.windsurf/
+.vscode/
+.cta.json
+skills-lock.json

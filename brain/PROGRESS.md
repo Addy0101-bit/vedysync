@@ -6,6 +6,13 @@ This file acts as a chronological ledger of the progress on the Vedasync project
 
 ---
 
+## [Authentication Setup] - 2026-09-13
+- Integrated **Better-Auth** for authentication.
+- Added `User`, `Session`, `Account`, and `Verification` models to `schema.prisma`.
+- Configured the Better-Auth server instance in `src/lib/auth.ts` with the Prisma adapter and Google OAuth provider.
+- Initialized the Better-Auth client in `src/lib/auth-client.ts` (fixed an incorrect import from `/vue` to `/react`).
+- Created the TanStack router API catch-all route at `src/routes/api/auth/$.ts` to handle authentication endpoints.
+
 ## [Initial Project Setup] - 2026-09-13
 - Initialized a full-stack React 19 application using the **TanStack Start** framework.
 - Set up file-based routing via **TanStack Router**.

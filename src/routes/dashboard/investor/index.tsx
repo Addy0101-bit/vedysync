@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { requireInvestor } from '#/lib/auth.middleware'
 
-export const Route = createFileRoute('/dashboard/investors/')({
+export const Route = createFileRoute('/dashboard/investor/')({
   beforeLoad: () => requireInvestor(),
   component: RouteComponent,
 })

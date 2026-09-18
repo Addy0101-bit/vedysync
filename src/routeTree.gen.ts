@@ -19,7 +19,7 @@ import { Route as AuthRolesRouteImport } from './routes/auth/roles'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as DashboardAdminIndexRouteImport } from './routes/dashboard/admin/index'
-import { Route as DashboardInvestorsIndexRouteImport } from './routes/dashboard/investors/index'
+import { Route as DashboardInvestorIndexRouteImport } from './routes/dashboard/investor/index'
 import { Route as DashboardMakerIndexRouteImport } from './routes/dashboard/maker/index'
 import { Route as DashboardTesterIndexRouteImport } from './routes/dashboard/tester/index'
 
@@ -73,9 +73,9 @@ const DashboardAdminIndexRoute = DashboardAdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
-const DashboardInvestorsIndexRoute = DashboardInvestorsIndexRouteImport.update({
-  id: '/investors/',
-  path: '/investors/',
+const DashboardInvestorIndexRoute = DashboardInvestorIndexRouteImport.update({
+  id: '/investor/',
+  path: '/investor/',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardMakerIndexRoute = DashboardMakerIndexRouteImport.update({
@@ -100,7 +100,7 @@ export interface FileRoutesByFullPath {
   '/auth/signup': typeof AuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/admin/': typeof DashboardAdminIndexRoute
-  '/dashboard/investors/': typeof DashboardInvestorsIndexRoute
+  '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
   '/dashboard/tester/': typeof DashboardTesterIndexRoute
 }
@@ -115,7 +115,7 @@ export interface FileRoutesByTo {
   '/auth/signup': typeof AuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/admin': typeof DashboardAdminIndexRoute
-  '/dashboard/investors': typeof DashboardInvestorsIndexRoute
+  '/dashboard/investor': typeof DashboardInvestorIndexRoute
   '/dashboard/maker': typeof DashboardMakerIndexRoute
   '/dashboard/tester': typeof DashboardTesterIndexRoute
 }
@@ -131,7 +131,7 @@ export interface FileRoutesById {
   '/auth/signup': typeof AuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/admin/': typeof DashboardAdminIndexRoute
-  '/dashboard/investors/': typeof DashboardInvestorsIndexRoute
+  '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
   '/dashboard/tester/': typeof DashboardTesterIndexRoute
 }
@@ -148,7 +148,7 @@ export interface FileRouteTypes {
     | '/auth/signup'
     | '/api/auth/$'
     | '/dashboard/admin/'
-    | '/dashboard/investors/'
+    | '/dashboard/investor/'
     | '/dashboard/maker/'
     | '/dashboard/tester/'
   fileRoutesByTo: FileRoutesByTo
@@ -163,7 +163,7 @@ export interface FileRouteTypes {
     | '/auth/signup'
     | '/api/auth/$'
     | '/dashboard/admin'
-    | '/dashboard/investors'
+    | '/dashboard/investor'
     | '/dashboard/maker'
     | '/dashboard/tester'
   id:
@@ -178,7 +178,7 @@ export interface FileRouteTypes {
     | '/auth/signup'
     | '/api/auth/$'
     | '/dashboard/admin/'
-    | '/dashboard/investors/'
+    | '/dashboard/investor/'
     | '/dashboard/maker/'
     | '/dashboard/tester/'
   fileRoutesById: FileRoutesById
@@ -267,11 +267,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardAdminIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
-    '/dashboard/investors/': {
-      id: '/dashboard/investors/'
-      path: '/investors'
-      fullPath: '/dashboard/investors/'
-      preLoaderRoute: typeof DashboardInvestorsIndexRouteImport
+    '/dashboard/investor/': {
+      id: '/dashboard/investor/'
+      path: '/investor'
+      fullPath: '/dashboard/investor/'
+      preLoaderRoute: typeof DashboardInvestorIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
     '/dashboard/maker/': {
@@ -293,14 +293,14 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteRouteChildren {
   DashboardAdminIndexRoute: typeof DashboardAdminIndexRoute
-  DashboardInvestorsIndexRoute: typeof DashboardInvestorsIndexRoute
+  DashboardInvestorIndexRoute: typeof DashboardInvestorIndexRoute
   DashboardMakerIndexRoute: typeof DashboardMakerIndexRoute
   DashboardTesterIndexRoute: typeof DashboardTesterIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardAdminIndexRoute: DashboardAdminIndexRoute,
-  DashboardInvestorsIndexRoute: DashboardInvestorsIndexRoute,
+  DashboardInvestorIndexRoute: DashboardInvestorIndexRoute,
   DashboardMakerIndexRoute: DashboardMakerIndexRoute,
   DashboardTesterIndexRoute: DashboardTesterIndexRoute,
 }

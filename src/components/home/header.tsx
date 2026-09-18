@@ -1,9 +1,49 @@
-import { Link } from '@tanstack/react-router'
+import { Link, useNavigate } from '@tanstack/react-router'
 import { authClient } from '#/lib/auth-client'
 import { RiveWrapper } from '#/components/ui/rive-wrapper'
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+    DropdownMenuGroup,
+    DropdownMenuSub,
+    DropdownMenuSubTrigger,
+    DropdownMenuSubContent,
+    DropdownMenuPortal,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+} from "#/components/ui/dropdown-menu"
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+} from "#/components/ui/alert-dialog"
+import { LogOut, Moon, Sun, Monitor, Loader2 } from 'lucide-react'
+import { useState } from 'react'
+import { useTheme } from '#/components/ui/theme-provider'
 
 export default function Header() {
     const { data: session, isPending } = authClient.useSession()
+    const navigate = useNavigate()
+    const { theme, setTheme } = useTheme()
+    const [showLogoutDialog, setShowLogoutDialog] = useState(false)
+    const [isLoggingOut, setIsLoggingOut] = useState(false)
+
+    const handleLogout = async () => {
+        setIsLoggingOut(true)
+        await authClient.signOut()
+        setShowLogoutDialog(false)
+        setIsLoggingOut(false)
+        navigate({ to: '/auth/login' })
+    }
 
     return (
         <header className="fixed top-2 left-0 right-0 z-50 flex justify-center items-center max-w-7xl mx-auto px-6 w-full pointer-events-none">
@@ -42,13 +82,79 @@ export default function Header() {
                                         <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300 px-2">|</span>
                                     </>
                                 )}
-                                <div className="h-10 w-10 rounded-full overflow-hidden ml-2 mr-1">
-                                    {session.user.image ? (
-                                        <img src={session.user.image} alt="Profile" className="h-full w-full object-cover" />
-                                    ) : (
-                                        <RiveWrapper src="/animations/avatar.riv" stateMachine="State Machine 1" />
-                                    )}
-                                </div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger className="focus:outline-none">
+                                        <div className="h-10 w-10 rounded-full border border-border overflow-hidden ml-2 mr-1 cursor-pointer hover:ring-2 hover:ring-primary/20 transition-all">
+                                            {session.user.image ? (
+                                                <img src={session.user.image} alt="Profile" className="h-full w-full object-cover" referrerPolicy='no-referrer' />
+                                            ) : (
+                                                <RiveWrapper src="/animations/avatarFour.riv" stateMachine="State Machine 1" />
+                                            )}
+                                        </div>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="end" className="w-56 mt-2">
+                                        <DropdownMenuGroup>
+                                            <DropdownMenuLabel className="flex flex-col space-y-1">
+                                                <span className="font-medium leading-none">{session.user.name}</span>
+                                                <span className="text-xs leading-none text-zinc-500">{session.user.email}</span>
+                                            </DropdownMenuLabel>
+                                        </DropdownMenuGroup>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuSub>
+                                            <DropdownMenuSubTrigger className="cursor-pointer">
+                                                {theme === 'system' ? <Monitor className="mr-2 h-4 w-4" /> : theme === 'dark' ? <Moon className="mr-2 h-4 w-4" /> : <Sun className="mr-2 h-4 w-4" />}
+                                                <span>Theme</span>
+                                            </DropdownMenuSubTrigger>
+                                            <DropdownMenuPortal>
+                                                <DropdownMenuSubContent>
+                                                    <DropdownMenuRadioGroup value={theme} onValueChange={(val) => setTheme(val as "light" | "dark" | "system")}>
+                                                        <DropdownMenuRadioItem value="light" className="cursor-pointer">
+                                                            <Sun className="mr-2 h-4 w-4" />
+                                                            <span>Light</span>
+                                                        </DropdownMenuRadioItem>
+                                                        <DropdownMenuRadioItem value="dark" className="cursor-pointer">
+                                                            <Moon className="mr-2 h-4 w-4" />
+                                                            <span>Dark</span>
+                                                        </DropdownMenuRadioItem>
+                                                        <DropdownMenuRadioItem value="system" className="cursor-pointer">
+                                                            <Monitor className="mr-2 h-4 w-4" />
+                                                            <span>System Default</span>
+                                                        </DropdownMenuRadioItem>
+                                                    </DropdownMenuRadioGroup>
+                                                </DropdownMenuSubContent>
+                                            </DropdownMenuPortal>
+                                        </DropdownMenuSub>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem onClick={() => setShowLogoutDialog(true)} className="cursor-pointer text-red-600 focus:text-red-600 dark:text-red-500 dark:focus:text-red-500">
+                                            <LogOut className="mr-2 h-4 w-4" />
+                                            <span>Log out</span>
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+
+                                <AlertDialog open={showLogoutDialog} onOpenChange={setShowLogoutDialog}>
+                                    <AlertDialogContent className='rounded-xl'>
+                                        <AlertDialogHeader>
+                                            <AlertDialogTitle>Are you sure you want to log out?</AlertDialogTitle>
+                                            <AlertDialogDescription>
+                                                You will be redirected to the login page.
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter className='border-t border-border p-2'>
+                                            <AlertDialogCancel className='rounded-md'>Cancel</AlertDialogCancel>
+                                            <AlertDialogAction onClick={handleLogout} disabled={isLoggingOut} className="bg-red-600 text-white hover:bg-red-700 rounded-md min-w-[100px]">
+                                                {isLoggingOut ? (
+                                                    <>
+                                                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                                        Logging out...
+                                                    </>
+                                                ) : (
+                                                    "Log out"
+                                                )}
+                                            </AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
                             </>
                         ) : (
                             <>

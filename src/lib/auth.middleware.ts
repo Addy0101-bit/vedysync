@@ -8,7 +8,7 @@ export const redirectIfAuthenticated = createServerFn({ method: 'GET' }).handler
   const session = await auth.api.getSession({ headers })
   
   if (session) {
-    if (session.user.role) {
+    if (session.user.hasChosenRole) {
       throw redirect({ to: '/' })
     } else {
       throw redirect({ to: '/auth/roles' })
@@ -23,7 +23,7 @@ export const requireAuthForRoles = createServerFn({ method: 'GET' }).handler(asy
   if (!session) {
     throw redirect({ to: '/auth/login' })
   }
-  if (session.user.role) {
+  if (session.user.hasChosenRole) {
     throw redirect({ to: '/' })
   }
 })
@@ -35,7 +35,7 @@ export const requireAuth = createServerFn({ method: 'GET' }).handler(async () =>
   if (!session) {
     throw redirect({ to: '/auth/login' })
   }
-  if (!session.user.role) {
+  if (!session.user.hasChosenRole) {
     throw redirect({ to: '/auth/roles' })
   }
 })

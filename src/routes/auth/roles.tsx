@@ -7,6 +7,7 @@ import { NativeSelect, NativeSelectOption } from '#/components/ui/native-select'
 import { authClient } from '#/lib/auth-client'
 
 import { requireAuthForRoles } from '#/lib/auth.middleware'
+import { Loader2 } from 'lucide-react'
 
 export const Route = createFileRoute('/auth/roles')({
   beforeLoad: () => requireAuthForRoles(),
@@ -29,6 +30,7 @@ function Roles() {
     try {
       const { error: updateError } = await authClient.updateUser({
         role: role,
+        hasChosenRole: true,
       })
       if (updateError) {
         setError(updateError.message || 'Failed to update role')
@@ -112,7 +114,14 @@ function Roles() {
               className="w-full mt-6"
               disabled={loading}
             >
-              {loading ? 'Saving...' : 'Continue'}
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Saving...
+                </>
+              ) : (
+                'Continue'
+              )}
             </Button>
           </form>
 

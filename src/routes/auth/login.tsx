@@ -8,6 +8,7 @@ import { authClient } from '#/lib/auth-client'
 import { toast } from '#/components/ui/toast'
 
 import { redirectIfAuthenticated } from '#/lib/auth.middleware'
+import { Loader2 } from 'lucide-react'
 
 export const Route = createFileRoute('/auth/login')({
   beforeLoad: () => redirectIfAuthenticated(),
@@ -19,9 +20,12 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [googleLoading, setGoogleLoading] = useState(false)
   const [error, setError] = useState('')
 
   const handleGoogleSignIn = async () => {
+    setGoogleLoading(true)
+    setError('')
     try {
       await authClient.signIn.social({
         provider: 'google',
@@ -37,6 +41,7 @@ function Login() {
       })
     } catch (error: any) {
       setError(error.message || 'An error occurred')
+      setGoogleLoading(false)
     }
   }
 
@@ -55,7 +60,7 @@ function Login() {
       if (signInError) {
         setError(signInError.message || 'Invalid email or password')
       } else {
-        if (data.user.role) {
+        if (data.user.hasChosenRole) {
           navigate({ to: '/' })
         } else {
           navigate({ to: '/auth/roles' })
@@ -148,7 +153,14 @@ function Login() {
               className="w-full mt-4"
               disabled={loading}
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Signing in...
+                </>
+              ) : (
+                'Sign In'
+              )}
             </Button>
 
             <div className="relative my-4">
@@ -160,9 +172,18 @@ function Login() {
               </div>
             </div>
 
-            <Button onClick={handleGoogleSignIn} variant="outline" type="button" className="w-full">
-              <img src="/images/google.png" alt="Google Logo" className="h-4 w-4 mr-2" />
-              Google
+            <Button onClick={handleGoogleSignIn} variant="outline" type="button" className="w-full" disabled={googleLoading}>
+              {googleLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Connecting...
+                </>
+              ) : (
+                <>
+                  <img src="/images/google.png" alt="Google Logo" className="h-4 w-4 mr-2" />
+                  Google
+                </>
+              )}
             </Button>
           </form>
 

@@ -7,6 +7,9 @@ function Home() {
   return (
     <div className="min-h-screen">
       <Header />
+      <h1>
+        Adarsh is here as contributer!
+      </h1>
     </div>
   )
 }

@@ -23,6 +23,9 @@ importers:
       '@prisma/client':
         specifier: ^7.10.0
         version: 7.10.0(prisma@8.1.0-dev.6(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(typescript@6.0.3))(typescript@6.0.3)
+      '@rive-app/react-canvas':
+        specifier: ^4.34.3
+        version: 4.34.3(react@19.3.0)
       '@shadcn/react':
         specifier: ^0.3.1
         version: 0.3.1(@types/react@19.3.0)(react@19.3.0)
@@ -1032,6 +1035,14 @@ packages:
         optional: true
       react-redux:
         optional: true
+
+  '@rive-app/canvas@2.42.2':
+    resolution: {integrity: sha512-NlSngaccl6L0XambU8XuK+0MT9cIbQBQrBod+/tWPLIjL/G82cXs7c6hj6wdrfk9YSVj8ZNuXcUEKoEo6YABYg==}
+
+  '@rive-app/react-canvas@4.34.3':
+    resolution: {integrity: sha512-imxE0KGOQ45dZq84rBzWu/IFsabra71rwcpJi/dVw7o/WzOwhL+ueQ44545ODS2zUzw3E5e30ogQMf5VLXzi8w==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0
 
   '@rolldown/binding-android-arm-eabi@1.2.8':
     resolution: {integrity: sha512-tN5aztYkKCte4i5SIrrz5yK/HMjEuCqCSCJa418jOV8tZ1cBY3YF2otxB1ktPxzsLA1BeTqwapK0bfjxNvHJVw==}
@@ -5122,6 +5133,13 @@ snapshots:
     optionalDependencies:
       react: 19.3.0
       react-redux: 9.3.0(@types/react@19.3.0)(react@19.3.0)(redux@5.0.1)
+
+  '@rive-app/canvas@2.42.2': {}
+
+  '@rive-app/react-canvas@4.34.3(react@19.3.0)':
+    dependencies:
+      '@rive-app/canvas': 2.42.2
+      react: 19.3.0
 
   '@rolldown/binding-android-arm-eabi@1.2.8':
     optional: true

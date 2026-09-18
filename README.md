@@ -24,7 +24,15 @@ Vedasync is a modern full-stack web application built with a bleeding-edge tech 
 ### Prerequisites
 
 - Node.js (v18+)
-- `pnpm` installed globally
+- **pnpm** (Required package manager for this project)
+
+> [!WARNING]
+> This project strictly uses **pnpm**. Do not use `npm` or `yarn` as it will create conflicting lockfiles and cause dependency issues.
+
+To install `pnpm` globally, run:
+```bash
+npm install -g pnpm
+```
 
 ### 1. Clone & Install
 

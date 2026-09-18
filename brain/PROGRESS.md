@@ -6,6 +6,12 @@ This file acts as a chronological ledger of the progress on the Vedasync project
 
 ---
 
+## [UI Enhancements] - 2026-09-18
+- Increased the size of the Rive animation avatar in the header from 32px to 40px (h-10 w-10).
+- Debugged and adjusted RiveWrapper component.
+
+---
+
 ## [Authentication Setup] - 2026-09-13
 - Integrated **Better-Auth** for authentication.
 - Added `User`, `Session`, `Account`, and `Verification` models to `schema.prisma`.

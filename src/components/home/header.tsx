@@ -1,6 +1,7 @@
-import { Link, useNavigate } from '@tanstack/react-router'
+import { Link, useNavigate, useLocation } from '@tanstack/react-router'
 import { authClient } from '#/lib/auth-client'
-import { RiveWrapper } from '#/components/ui/rive-wrapper'
+import { Blobatar } from '@blobatar/react'
+import "blobatar/motion.css";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -30,9 +31,11 @@ import { LogOut, Moon, Sun, Monitor, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { useTheme } from '#/components/ui/theme-provider'
 
+
 export default function Header() {
     const { data: session, isPending } = authClient.useSession()
     const navigate = useNavigate()
+    const location = useLocation()
     const { theme, setTheme } = useTheme()
     const [showLogoutDialog, setShowLogoutDialog] = useState(false)
     const [isLoggingOut, setIsLoggingOut] = useState(false)
@@ -59,9 +62,9 @@ export default function Header() {
                 {/* Pill 2: Navigation Links */}
                 <div className="flex-none hidden md:block">
                     <div className="flex items-center gap-1 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl rounded-full px-2 py-1.5 h-12 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.2)] border border-black/[0.04] dark:border-white/[0.04]">
-                        <Link to="/" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white px-5 py-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-300 ease-out">Home</Link>
-                        <Link to="/about" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white px-5 py-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-300 ease-out">About</Link>
-                        <Link to="/contact" className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white px-5 py-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-300 ease-out">Contact</Link>
+                        <Link to="/" className={`text-sm font-medium px-5 py-2 rounded-full transition-all duration-300 ease-out ${location.pathname === '/' ? 'bg-blue-400 dark:bg-blue-600 text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'}`}>Home</Link>
+                        <Link to="/about" className={`text-sm font-medium px-5 py-2 rounded-full transition-all duration-300 ease-out ${location.pathname.startsWith('/about') ? 'bg-blue-400 dark:bg-blue-600 text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'}`}>About</Link>
+                        <Link to="/contact" className={`text-sm font-medium px-5 py-2 rounded-full transition-all duration-300 ease-out ${location.pathname.startsWith('/contact') ? 'bg-blue-400 dark:bg-blue-600 text-zinc-900 dark:text-white' : 'text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'}`}>Contact</Link>
                     </div>
                 </div>
 
@@ -78,18 +81,16 @@ export default function Header() {
                             <>
                                 {session.user.role && session.user.role !== 'user' && (
                                     <>
-                                        <Link to={`/dashboard/${session.user.role}`} className="text-sm font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white px-5 py-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-300 ease-out">Dashboard</Link>
+                                        <Link to={`/dashboard/${session.user.role}`} className="text-sm font-medium text-zinc-600 bg-blue-400 dark:bg-blue-600 text-zinc-900 dark:text-white px-5 py-2 hover:bg-black/5 dark:hover:bg-white/10 rounded-full transition-all duration-300 ease-out">Dashboard</Link>
                                         <span className="text-sm font-medium text-zinc-600 dark:text-zinc-300 px-2">|</span>
                                     </>
                                 )}
                                 <DropdownMenu>
                                     <DropdownMenuTrigger className="focus:outline-none">
-                                        <div className="h-10 w-10 rounded-full border border-border overflow-hidden ml-2 mr-1 cursor-pointer hover:ring-2 hover:ring-primary/20 transition-all">
-                                            {session.user.image ? (
-                                                <img src={session.user.image} alt="Profile" className="h-full w-full object-cover" referrerPolicy='no-referrer' />
-                                            ) : (
-                                                <RiveWrapper src="/animations/avatarFour.riv" stateMachine="State Machine 1" />
-                                            )}
+                                        <div className="h-10 w-10 cursor-pointer hover:scale-[1.05] active:scale-[0.95] transition-transform duration-300 ease-out">
+                                            <div className="h-full w-full">
+                                                <Blobatar name={session.user.name || 'user'} animate="always" />
+                                            </div>
                                         </div>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end" className="w-56 mt-2">

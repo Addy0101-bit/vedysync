@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@blobatar/react": "^2.7.0",
     "@fontsource-variable/dm-sans": "^5.3.0",
     "@fontsource-variable/outfit": "^5.3.0",
     "@prisma/adapter-pg": "^7.10.0",
@@ -32,6 +33,7 @@
     "@tanstack/react-router-ssr-query": "latest",
     "@tanstack/react-start": "latest",
     "better-auth": "^1.7.4",
+    "blobatar": "^2.7.0",
     "class-variance-authority": "^0.7.1",
     "cmdk": "^1.1.1",
     "cn": "^0.2.6",

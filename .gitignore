@@ -12,8 +12,6 @@ dist-ssr
 __unconfig*
 todos.json
 
-/src/generated/prisma
-
 # IDE and AI tools
 .agents/
 .claude/

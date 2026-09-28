@@ -1,0 +1,1 @@
+import{u as e}from"./index-BzxmU0Ac.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`Hello "/auth/forgot-password"!`})}export{n as component};

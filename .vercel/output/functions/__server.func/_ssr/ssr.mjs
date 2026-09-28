@@ -3931,7 +3931,7 @@ var RawStream = class {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-CKT4oKeF.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-DM-ZbKG4.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -3953,31 +3953,31 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"062238d278066e27f0c7e27c12aeedaa6c0aa5a28c064a972d718e5cd04504ce": {
 		functionName: "requireAdmin_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	},
 	"125f380cda88571a5c485f309249b9ac3239a48a48f2bc5c3bba53b8c39d9b7f": {
 		functionName: "redirectIfAuthenticated_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	},
 	"16dd413e21928919add2cdf613bba9b84b0e73157b5036c662df9b8738bb0231": {
 		functionName: "requireAuth_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	},
 	"1ab1028a9a60a3942a55a43ecba392fa3f2fcfd2531ec9b8bcd21aa80bf33328": {
 		functionName: "requireMaker_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	},
 	"1e8ae7ddd7c9241806afb484a606488ae1e18dc319e2b3843f5d2b7e0bf394d5": {
 		functionName: "requireInvestor_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	},
 	"2b4215b2662496bf75671ce62ce47b83c24c8483470eec7856b204681a227c40": {
 		functionName: "requireTester_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	},
 	"cf2fd1943bab8397c7dc0d44f21f21ab4ff72d5fd803139cc138d8a0af25438c": {
 		functionName: "requireAuthForRoles_createServerFn_handler",
-		importer: () => import("./auth.middleware-DfSFuv0S.mjs")
+		importer: () => import("./auth.middleware-BsSIvhsO.mjs")
 	}
 };
 async function getServerFnById(id, access) {
@@ -6600,7 +6600,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-DJQE-Z6l.mjs").then((n) => n.router_exports),
+		import("./router-BIYhYLJW.mjs").then((n) => n.router_exports),
 		import("./start-6VS_MKXS.mjs"),
 		import("./empty-plugin-adapters-DXDwBipW.mjs")
 	]);

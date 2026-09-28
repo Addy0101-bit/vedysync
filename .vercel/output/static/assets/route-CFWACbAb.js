@@ -1,1 +1,0 @@
-import{n as e,u as t}from"./index-DBdqMD9_.js";var n=t(),r=()=>(0,n.jsx)(e,{});export{r as component};

@@ -6,7 +6,7 @@ import { TSS_SERVER_FUNCTION, createServerFn, getServerFnById } from "./ssr.mjs"
 import { auth } from "./auth-D2IxJBBm.mjs";
 import { QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { setupRouterSsrQueryIntegration } from "../_libs/@tanstack/react-router-ssr-query+[...].mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DcNIXEAQ.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DJQE-Z6l.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-ktc06k4d.css";
@@ -75,7 +75,8 @@ var Route$13 = createRootRouteWithContext()({
 			href: styles_default
 		}, {
 			rel: "icon",
-			href: "/favicon.ico"
+			type: "image/x-icon",
+			href: "/favicon.ico?v=2"
 		}]
 	}),
 	shellComponent: RootDocument
@@ -86,11 +87,11 @@ function RootDocument({ children }) {
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("head", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeadContent, {}) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("body", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ThemeProvider, { children: [children, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Scripts, {})] }) })]
 	});
 }
-var $$splitComponentImporter$11 = () => import("./routes-8jowSAPH.mjs");
+var $$splitComponentImporter$11 = () => import("./routes-nF7yJjCq.mjs");
 var Route$12 = createFileRoute("/")({ component: lazyRouteComponent($$splitComponentImporter$11, "component") });
-var $$splitComponentImporter$10 = () => import("./about-BsXYKAM0.mjs");
+var $$splitComponentImporter$10 = () => import("./about-Bupb9aBx.mjs");
 var Route$11 = createFileRoute("/about")({ component: lazyRouteComponent($$splitComponentImporter$10, "component") });
-var $$splitComponentImporter$9 = () => import("./contact-uVYocIDE.mjs");
+var $$splitComponentImporter$9 = () => import("./contact-CAZlyr_t.mjs");
 var Route$10 = createFileRoute("/contact")({ component: lazyRouteComponent($$splitComponentImporter$9, "component") });
 var $$splitComponentImporter$8 = () => import("./route-DW0Hgr-E.mjs");
 function DashboardPending() {
@@ -134,17 +135,17 @@ var requireAdmin = createServerFn({ method: "GET" }).handler(createSsrRpc("06223
 var requireMaker = createServerFn({ method: "GET" }).handler(createSsrRpc("1ab1028a9a60a3942a55a43ecba392fa3f2fcfd2531ec9b8bcd21aa80bf33328"));
 var requireInvestor = createServerFn({ method: "GET" }).handler(createSsrRpc("1e8ae7ddd7c9241806afb484a606488ae1e18dc319e2b3843f5d2b7e0bf394d5"));
 var requireTester = createServerFn({ method: "GET" }).handler(createSsrRpc("2b4215b2662496bf75671ce62ce47b83c24c8483470eec7856b204681a227c40"));
-var $$splitComponentImporter$6 = () => import("./login-CYnoXZuQ.mjs");
+var $$splitComponentImporter$6 = () => import("./login-2yK38Ht0.mjs");
 var Route$7 = createFileRoute("/auth/login")({
 	beforeLoad: () => redirectIfAuthenticated(),
 	component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-var $$splitComponentImporter$5 = () => import("./roles-Cf2PWtUn.mjs");
+var $$splitComponentImporter$5 = () => import("./roles-DiGSbTRE.mjs");
 var Route$6 = createFileRoute("/auth/roles")({
 	beforeLoad: () => requireAuthForRoles(),
 	component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-var $$splitComponentImporter$4 = () => import("./signup-CEki11fh.mjs");
+var $$splitComponentImporter$4 = () => import("./signup-CwEhQFXD.mjs");
 var Route$5 = createFileRoute("/auth/signup")({
 	beforeLoad: () => redirectIfAuthenticated(),
 	component: lazyRouteComponent($$splitComponentImporter$4, "component")

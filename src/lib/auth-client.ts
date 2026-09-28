@@ -5,7 +5,6 @@ import type { auth } from "./auth"
 export const authClient = createAuthClient({
     plugins: [
         inferAdditionalFields<typeof auth>()
-    ],
-    /** The base URL of the server (optional if you're using the same domain) */
-    baseURL: import.meta.env.VITE_APP_URL || "http://localhost:3000"
+    ]
+    // We remove baseURL entirely so it defaults to the current domain (works for both local and production!)
 })

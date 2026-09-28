@@ -3,7 +3,7 @@ import { Button, require_jsx_runtime, require_react } from "../_libs/@base-ui/re
 import { PACKAGE_VERSION, capitalizeFirstLetter, createFetch, defu, getBaseURL, isSafeUrlScheme, toKebabCase } from "./auth-D2IxJBBm.mjs";
 import { cn } from "../_libs/cn.mjs";
 import { cva } from "../_libs/class-variance-authority+clsx.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/button-D6wkTdmd.js
+//#region node_modules/.nitro/vite/services/ssr/assets/button-CAKNm_4Y.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var PROTO_POLLUTION_PATTERNS = {
@@ -960,7 +960,7 @@ var inferAdditionalFields = (schema) => {
 var authClient = createAuthClient({
 	plugins: [inferAdditionalFields()],
 	/** The base URL of the server (optional if you're using the same domain) */
-	baseURL: "http://localhost:3000"
+	baseURL: "https://vedysync.vercel.app/"
 });
 var buttonVariants = cva("group/button inline-flex shrink-0 items-center justify-center rounded-4xl border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", {
 	variants: {

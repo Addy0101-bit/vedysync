@@ -1,11 +1,11 @@
 import { __toESM } from "../_runtime.mjs";
 import { require_jsx_runtime, require_react } from "../_libs/@base-ui/react+[...].mjs";
 import { Link, useNavigate } from "../_libs/@tanstack/react-router+[...].mjs";
-import { Button$1, authClient } from "./button-D6wkTdmd.mjs";
+import { Button$1, authClient } from "./button-CAKNm_4Y.mjs";
 import { LoaderCircle } from "../_libs/lucide-react.mjs";
 import { Label, RiveWrapper } from "./label-DnCkpH7u.mjs";
-import { Input$1, toast } from "./toast-CY4BT0D9.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/signup-CEki11fh.js
+import { Input$1, toast } from "./toast-CfQhc0um.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/signup-CwEhQFXD.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function Signup() {

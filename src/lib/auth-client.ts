@@ -7,5 +7,5 @@ export const authClient = createAuthClient({
         inferAdditionalFields<typeof auth>()
     ],
     // We remove baseURL entirely so it defaults to the current domain (works for both local and production!)
-    baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000"
+
 })

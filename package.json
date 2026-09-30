@@ -77,7 +77,6 @@
       "esbuild",
       "lightningcss",
       "@prisma/engines",
-      "@prisma/client",
       "prisma",
       "unrs-resolver"
     ]

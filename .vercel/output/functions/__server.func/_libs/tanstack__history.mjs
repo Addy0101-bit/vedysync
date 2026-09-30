@@ -342,6 +342,45 @@ function createBrowserHistory(opts) {
 	};
 	return history;
 }
+var noop = () => {};
+var ServerHistory = class {
+	constructor(location) {
+		this.location = location;
+	}
+	get length() {
+		return 1;
+	}
+	get subscribers() {
+		return this._subscribers ??= /* @__PURE__ */ new Set();
+	}
+	subscribe() {
+		return noop;
+	}
+	push() {}
+	replace() {}
+	go() {}
+	back() {}
+	forward() {}
+	canGoBack() {
+		return false;
+	}
+	createHref(href) {
+		return normalizeHref(href);
+	}
+	block() {
+		return noop;
+	}
+	flush() {}
+	destroy() {}
+	notify() {}
+	_getBlockers() {
+		return [];
+	}
+};
+/** A fixed request location; server navigation is a no-op. */
+function createServerHistory(href) {
+	return new ServerHistory(parseHref(href, void 0));
+}
 function parseHref(href, state) {
 	const sanitizedHref = normalizeHref(href);
 	const hashIndex = sanitizedHref.indexOf("#");
@@ -366,4 +405,4 @@ function createRandomKey() {
 	return (Math.random() + 1).toString(36).substring(7);
 }
 //#endregion
-export { createBrowserHistory, normalizeProtocolRelative, parseHref };
+export { createBrowserHistory, createServerHistory, normalizeProtocolRelative, parseHref };

@@ -83,3 +83,15 @@ model Verification {
   @@index([identifier])
   @@map("verification")
 }
+
+model Marketplace {
+  id        String    @id @default(cuid())
+  itemName  String
+  quantity  Int       @default(0)
+  exp_date  DateTime?
+  inStock   Boolean   @default(true)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("marketplace")
+}

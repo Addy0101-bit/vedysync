@@ -17,8 +17,11 @@ import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-pas
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthRolesRouteImport } from './routes/auth/roles'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
+import { Route as DashboardAdminRouteRouteImport } from './routes/dashboard/admin/route'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as DashboardAdminIndexRouteImport } from './routes/dashboard/admin/index'
+import { Route as DashboardAdminReportRouteImport } from './routes/dashboard/admin/report'
+import { Route as DashboardAdminUserRouteImport } from './routes/dashboard/admin/user'
 import { Route as DashboardInvestorIndexRouteImport } from './routes/dashboard/investor/index'
 import { Route as DashboardMakerIndexRouteImport } from './routes/dashboard/maker/index'
 import { Route as DashboardTesterIndexRouteImport } from './routes/dashboard/tester/index'
@@ -63,15 +66,30 @@ const AuthSignupRoute = AuthSignupRouteImport.update({
   path: '/auth/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardAdminRouteRoute = DashboardAdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardAdminIndexRoute = DashboardAdminIndexRouteImport.update({
-  id: '/admin/',
-  path: '/admin/',
-  getParentRoute: () => DashboardRouteRoute,
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardAdminRouteRoute,
+} as any)
+const DashboardAdminReportRoute = DashboardAdminReportRouteImport.update({
+  id: '/report',
+  path: '/report',
+  getParentRoute: () => DashboardAdminRouteRoute,
+} as any)
+const DashboardAdminUserRoute = DashboardAdminUserRouteImport.update({
+  id: '/user',
+  path: '/user',
+  getParentRoute: () => DashboardAdminRouteRoute,
 } as any)
 const DashboardInvestorIndexRoute = DashboardInvestorIndexRouteImport.update({
   id: '/investor/',
@@ -94,11 +112,14 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dashboard/admin': typeof DashboardAdminRouteRouteWithChildren
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/roles': typeof AuthRolesRoute
   '/auth/signup': typeof AuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/dashboard/admin/report': typeof DashboardAdminReportRoute
+  '/dashboard/admin/user': typeof DashboardAdminUserRoute
   '/dashboard/admin/': typeof DashboardAdminIndexRoute
   '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
@@ -114,6 +135,8 @@ export interface FileRoutesByTo {
   '/auth/roles': typeof AuthRolesRoute
   '/auth/signup': typeof AuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/dashboard/admin/report': typeof DashboardAdminReportRoute
+  '/dashboard/admin/user': typeof DashboardAdminUserRoute
   '/dashboard/admin': typeof DashboardAdminIndexRoute
   '/dashboard/investor': typeof DashboardInvestorIndexRoute
   '/dashboard/maker': typeof DashboardMakerIndexRoute
@@ -125,11 +148,14 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/dashboard/admin': typeof DashboardAdminRouteRouteWithChildren
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/roles': typeof AuthRolesRoute
   '/auth/signup': typeof AuthSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/dashboard/admin/report': typeof DashboardAdminReportRoute
+  '/dashboard/admin/user': typeof DashboardAdminUserRoute
   '/dashboard/admin/': typeof DashboardAdminIndexRoute
   '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
@@ -142,11 +168,14 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/about'
     | '/contact'
+    | '/dashboard/admin'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/roles'
     | '/auth/signup'
     | '/api/auth/$'
+    | '/dashboard/admin/report'
+    | '/dashboard/admin/user'
     | '/dashboard/admin/'
     | '/dashboard/investor/'
     | '/dashboard/maker/'
@@ -162,6 +191,8 @@ export interface FileRouteTypes {
     | '/auth/roles'
     | '/auth/signup'
     | '/api/auth/$'
+    | '/dashboard/admin/report'
+    | '/dashboard/admin/user'
     | '/dashboard/admin'
     | '/dashboard/investor'
     | '/dashboard/maker'
@@ -172,11 +203,14 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/about'
     | '/contact'
+    | '/dashboard/admin'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/roles'
     | '/auth/signup'
     | '/api/auth/$'
+    | '/dashboard/admin/report'
+    | '/dashboard/admin/user'
     | '/dashboard/admin/'
     | '/dashboard/investor/'
     | '/dashboard/maker/'
@@ -253,6 +287,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/admin': {
+      id: '/dashboard/admin'
+      path: '/admin'
+      fullPath: '/dashboard/admin'
+      preLoaderRoute: typeof DashboardAdminRouteRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -262,10 +303,24 @@ declare module '@tanstack/react-router' {
     }
     '/dashboard/admin/': {
       id: '/dashboard/admin/'
-      path: '/admin'
+      path: '/'
       fullPath: '/dashboard/admin/'
       preLoaderRoute: typeof DashboardAdminIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      parentRoute: typeof DashboardAdminRouteRoute
+    }
+    '/dashboard/admin/report': {
+      id: '/dashboard/admin/report'
+      path: '/report'
+      fullPath: '/dashboard/admin/report'
+      preLoaderRoute: typeof DashboardAdminReportRouteImport
+      parentRoute: typeof DashboardAdminRouteRoute
+    }
+    '/dashboard/admin/user': {
+      id: '/dashboard/admin/user'
+      path: '/user'
+      fullPath: '/dashboard/admin/user'
+      preLoaderRoute: typeof DashboardAdminUserRouteImport
+      parentRoute: typeof DashboardAdminRouteRoute
     }
     '/dashboard/investor/': {
       id: '/dashboard/investor/'
@@ -291,15 +346,30 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface DashboardRouteRouteChildren {
+interface DashboardAdminRouteRouteChildren {
+  DashboardAdminReportRoute: typeof DashboardAdminReportRoute
+  DashboardAdminUserRoute: typeof DashboardAdminUserRoute
   DashboardAdminIndexRoute: typeof DashboardAdminIndexRoute
+}
+
+const DashboardAdminRouteRouteChildren: DashboardAdminRouteRouteChildren = {
+  DashboardAdminReportRoute: DashboardAdminReportRoute,
+  DashboardAdminUserRoute: DashboardAdminUserRoute,
+  DashboardAdminIndexRoute: DashboardAdminIndexRoute,
+}
+
+const DashboardAdminRouteRouteWithChildren =
+  DashboardAdminRouteRoute._addFileChildren(DashboardAdminRouteRouteChildren)
+
+interface DashboardRouteRouteChildren {
+  DashboardAdminRouteRoute: typeof DashboardAdminRouteRouteWithChildren
   DashboardInvestorIndexRoute: typeof DashboardInvestorIndexRoute
   DashboardMakerIndexRoute: typeof DashboardMakerIndexRoute
   DashboardTesterIndexRoute: typeof DashboardTesterIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
-  DashboardAdminIndexRoute: DashboardAdminIndexRoute,
+  DashboardAdminRouteRoute: DashboardAdminRouteRouteWithChildren,
   DashboardInvestorIndexRoute: DashboardInvestorIndexRoute,
   DashboardMakerIndexRoute: DashboardMakerIndexRoute,
   DashboardTesterIndexRoute: DashboardTesterIndexRoute,

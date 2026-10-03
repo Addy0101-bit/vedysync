@@ -2,17 +2,17 @@ import { __commonJSMin, __require, __toESM } from "../../_runtime.mjs";
 import { require_jsx_runtime, require_react, require_react_dom, require_with_selector } from "../@base-ui/react+[...].mjs";
 import { normalizeProtocolRelative, parseHref } from "../tanstack__history.mjs";
 import { PassThrough, Readable } from "node:stream";
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/not-found.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/not-found.js
 /** Determine if a value is a TanStack Router not-found error. */
 function isNotFound(obj) {
 	return obj?.isNotFound === true;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/root.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/root.js
 /** Stable identifier used for the root route in a route tree. */
 var rootRouteId = "__root__";
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/redirect.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/redirect.js
 /**
 * Create a redirect Response understood by TanStack Router.
 *
@@ -51,12 +51,12 @@ function parseRedirect(obj) {
 	if (obj !== null && typeof obj === "object" && obj.isSerializedRedirect) return redirect(obj);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/ssr-match-id.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/ssr-match-id.js
 function dehydrateSsrMatchId(id) {
 	return id.replaceAll("~", "~~").replaceAll("\0", "~0").replaceAll("�", "~r").replaceAll("/", "\0");
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/utils.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/utils.js
 /**
 * Return the last element of an array.
 * Intended for non-empty arrays used within router internals.
@@ -277,7 +277,7 @@ function arraysEqual(a, b) {
 	return true;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/path.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/path.js
 /** Remove repeated slashes from a path string. */
 function cleanPath(path) {
 	return path.replace(/\/{2,}/g, "/");
@@ -396,7 +396,7 @@ function interpolatePath(path, segments, params, decoder, usedParams) {
 	return joined + trailingSlash || "/";
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/sieve-cache.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/sieve-cache.js
 /**
 * A fixed-capacity cache using the SIEVE eviction algorithm
 * (https://cachemon.github.io/SIEVE-website/).
@@ -452,12 +452,12 @@ function createSieveCache(max) {
 	};
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/invariant.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/invariant.js
 function invariant() {
 	throw new Error("Invariant failed");
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/new-process-route-tree.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/new-process-route-tree.js
 var SEGMENT_TYPE_INDEX = 4;
 var SEGMENT_TYPE_PATHLESS = 5;
 function getParamNames(data) {
@@ -1030,7 +1030,7 @@ function isFrameMoreSpecific(prev, next) {
 	return next.statics > prev.statics || next.statics === prev.statics && (next.dynamics > prev.dynamics || next.dynamics === prev.dynamics && (next.optionals > prev.optionals || next.optionals === prev.optionals && ((next.node.kind === SEGMENT_TYPE_INDEX) > (prev.node.kind === SEGMENT_TYPE_INDEX) || next.node.kind === SEGMENT_TYPE_INDEX === (prev.node.kind === SEGMENT_TYPE_INDEX) && next.node.depth > prev.node.depth)));
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/scroll-restoration.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/scroll-restoration.js
 function getSafeSessionStorage() {
 	try {
 		return sessionStorage;
@@ -1050,7 +1050,7 @@ var defaultGetScrollRestorationKey = (location) => {
 	return location.state.__TSR_key || location.href;
 };
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/qss.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/qss.js
 /**
 * Program is a reimplementation of the `qss` package:
 * Copyright (c) Luke Edwards luke.edwards05@gmail.com, MIT License
@@ -1116,7 +1116,7 @@ function decode(str) {
 	return result;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/searchParams.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/searchParams.js
 var jsonStart = /^(?:\s|["[{\d-]|fa|nu|tr)/;
 /** Default `parseSearch` that strips leading '?' and JSON-parses values. */
 var defaultParseSearch = parseSearchWith(JSON.parse);
@@ -1182,7 +1182,7 @@ function stringifySearchWith(stringify, parser) {
 	};
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/rewrite.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/rewrite.js
 /** Create a rewrite pair that strips/adds a basepath on input/output. */
 function rewriteBasepath(basepath, caseSensitive, rewrite) {
 	const trimmedBasepath = trimPath(basepath);
@@ -1225,7 +1225,7 @@ function executeRewriteOutput(rewrite, url) {
 	return url;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/stores.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/stores.js
 /** SSR non-reactive createMutableStore */
 function createNonReactiveMutableStore(initialValue) {
 	let value = initialValue;
@@ -1293,7 +1293,7 @@ function createRouterStores(initialLocation, config) {
 	return store;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/router.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/router.js
 function isExternalUrl(url, origin) {
 	return url.protocol !== "http:" && url.protocol !== "https:" || url.origin !== origin || !!url.username || !!url.password;
 }
@@ -1347,7 +1347,7 @@ var RouterCore = class {
 	*/
 	constructor(options, getStoreConfig) {
 		this.tempLocationKey = `${Math.round(Math.random() * 1e7)}`;
-		this._scroll = { next: true };
+		this._scroll = { n: true };
 		this.subscribers = /* @__PURE__ */ new Set();
 		this._cache = /* @__PURE__ */ new Map();
 		this._committed = [];
@@ -1629,10 +1629,10 @@ var RouterCore = class {
 			this._cache.forEach(consider);
 			preloads?.forEach((matches) => matches.forEach(consider));
 			this._tx?.[3].forEach(consider);
-			const discardedPreloads = [];
+			const abort = [];
 			for (const [controller, matches] of preloads ?? []) if (matches.some((match) => invalidIds.has(match.id))) {
 				preloads.delete(controller);
-				discardedPreloads.push(controller);
+				abort.push(controller);
 			}
 			const invalidate = (d) => {
 				if (invalidIds.has(d.id)) {
@@ -1655,8 +1655,12 @@ var RouterCore = class {
 				match.invalid = true;
 				if (opts?.forcePending) match.status = "pending";
 			}
-			for (const id of invalidIds) this._flights?.delete(id);
-			for (const controller of discardedPreloads) controller.abort();
+			for (const id of invalidIds) {
+				const flight = this._flights?.get(id);
+				this._flights?.delete(id);
+				if (flight && !flight[2]) abort.push(flight[1]);
+			}
+			for (const controller of abort) controller.abort();
 			this.shouldViewTransition = false;
 			return this.load({ sync: opts?.sync });
 		};
@@ -2022,7 +2026,7 @@ function extractStrictParams(route, accumulatedParams) {
 	if (parseParams) Object.assign(accumulatedParams, parseParams(accumulatedParams));
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/load-client.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/load-client.js
 function preloadComponent(route, type) {
 	return route.options[type]?.preload?.();
 }
@@ -2716,7 +2720,7 @@ async function preloadClientRoute(router, opts) {
 	}
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/await-signal.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/await-signal.js
 function observeLate(callback, value) {
 	if (!callback) return;
 	try {
@@ -2752,7 +2756,7 @@ function waitForReason(value, signal, onLate, onLateError) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/load-server.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/load-server.js
 var SUCCESS = 0;
 var ERROR = 1;
 var NOT_FOUND = 2;
@@ -3338,7 +3342,7 @@ async function loadServerRoute(router, opts) {
 	router._commitPromise = void 0;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/utils.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/utils.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 /**
 * React.use if available (React 19+), undefined otherwise.
@@ -3347,7 +3351,7 @@ var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var reactUse = import_react.use;
 var useLayoutEffect = import_react.useEffect;
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/manifest.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/manifest.js
 function getAssetCrossOrigin(assetCrossOrigin, kind) {
 	if (!assetCrossOrigin) return;
 	if (typeof assetCrossOrigin === "string") return assetCrossOrigin;
@@ -3409,7 +3413,7 @@ function createInlineCssPlaceholderAsset() {
 	return { attrs: { suppressHydrationWarning: true } };
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/bodyScripts.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/bodyScripts.js
 function getSsrBodyScriptParts(matches, manifest, nonce, routeScriptAttrs) {
 	const assetMatches = _getAssetMatches(matches);
 	const routeScripts = [];
@@ -3447,7 +3451,7 @@ function composeSsrBodyScripts([routeScripts, manifestScripts], initialHydration
 	];
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/route.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/route.js
 var BaseRoute = class {
 	get to() {
 		return this._to;
@@ -3519,7 +3523,7 @@ var BaseRootRoute = class extends BaseRoute {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/seroval@1.6.7/node_modules/seroval/dist/index.js
+//#region node_modules/.pnpm/seroval@1.6.8/node_modules/seroval/dist/index.js
 var SYM_ASYNC_ITERATOR = Symbol.asyncIterator;
 var SYM_HAS_INSTANCE = Symbol.hasInstance;
 var SYM_IS_CONCAT_SPREADABLE = Symbol.isConcatSpreadable;
@@ -4155,16 +4159,26 @@ var ARRAY_BUFFER_CONSTRUCTOR = (b64) => {
 	return arr.buffer;
 };
 var SERIALIZED_ARRAY_BUFFER_CONSTRUCTOR = /* @__PURE__ */ ARRAY_BUFFER_CONSTRUCTOR.toString();
+/**
+* An internal class rather than a tagged POJO: identity is checked with
+* `instanceof`, which untrusted input cannot forge (the class is not exported).
+* The eval-based `deserialize` path still rebuilds a `{__SEROVAL_SEQUENCE__…}`
+* POJO from embedded source - it has no access to this class - so a value read
+* back through `deserialize` is not an instance and, by design, is not treated
+* as a genuine Sequence on re-serialization.
+*/
+var Sequence = class {
+	constructor(values, throwAt, doneAt) {
+		this.v = values;
+		this.t = throwAt;
+		this.d = doneAt;
+	}
+};
 function isSequence(value) {
-	return "__SEROVAL_SEQUENCE__" in value;
+	return value instanceof Sequence;
 }
 function createSequence(values, throwAt, doneAt) {
-	return {
-		__SEROVAL_SEQUENCE__: true,
-		v: values,
-		t: throwAt,
-		d: doneAt
-	};
+	return new Sequence(values, throwAt, doneAt);
 }
 function createSequenceFromIterable(source) {
 	const values = [];
@@ -4180,7 +4194,9 @@ function createSequenceFromIterable(source) {
 		}
 	} catch (error) {
 		throwsAt = values.length;
+		doneAt = throwsAt;
 		values.push(error);
+		break;
 	}
 	return createSequence(values, throwsAt, doneAt);
 }
@@ -4209,11 +4225,118 @@ var SPECIAL_REF_STRING = {
 	[4]: SERIALIZED_STREAM_CONSTRUCTOR,
 	[5]: SERIALIZED_ARRAY_BUFFER_CONSTRUCTOR
 };
+function _checkPrivateRedeclaration(e, t) {
+	if (t.has(e)) throw new TypeError("Cannot initialize the same private elements twice on an object");
+}
+function _classPrivateMethodInitSpec(e, a) {
+	_checkPrivateRedeclaration(e, a), a.add(e);
+}
+function _classPrivateFieldInitSpec(e, t, a) {
+	_checkPrivateRedeclaration(e, t), t.set(e, a);
+}
+function _assertClassBrand(e, t, n) {
+	if ("function" == typeof e ? e === t : e.has(t)) return arguments.length < 3 ? t : n;
+	throw new TypeError("Private element is not present on this object");
+}
+function _classPrivateFieldGet2(s, a) {
+	return s.get(_assertClassBrand(s, a));
+}
+function _classPrivateFieldSet2(s, a, r) {
+	return s.set(_assertClassBrand(s, a), r), r;
+}
+var _buffer = /* @__PURE__ */ new WeakMap();
+var _listeners = /* @__PURE__ */ new WeakMap();
+var _alive = /* @__PURE__ */ new WeakMap();
+var _success = /* @__PURE__ */ new WeakMap();
+var _count = /* @__PURE__ */ new WeakMap();
+var _Stream_brand = /* @__PURE__ */ new WeakSet();
+/**
+* An internal class rather than a tagged POJO: identity is checked with
+* `instanceof`, which untrusted input cannot forge (the class is not exported).
+*
+* The behavior is intentionally duplicated from `STREAM_CONSTRUCTOR`. That
+* constructor's source is embedded verbatim into the eval-based `deserialize`
+* output, which has no access to this class, so the two cannot be shared. A
+* stream read back through `deserialize` is therefore a plain POJO and, by
+* design, is not treated as a genuine Stream on re-serialization. Keep the two
+* implementations in sync.
+*/
+var Stream = class {
+	constructor() {
+		_classPrivateMethodInitSpec(this, _Stream_brand);
+		_classPrivateFieldInitSpec(this, _buffer, []);
+		_classPrivateFieldInitSpec(this, _listeners, []);
+		_classPrivateFieldInitSpec(this, _alive, true);
+		_classPrivateFieldInitSpec(this, _success, false);
+		_classPrivateFieldInitSpec(this, _count, 0);
+	}
+	on(listener) {
+		let subscribed = _classPrivateFieldGet2(_alive, this);
+		let temp = 0;
+		if (subscribed) {
+			for (; temp < _classPrivateFieldGet2(_count, this); temp++) if (!_classPrivateFieldGet2(_listeners, this)[temp]) break;
+			if (temp === _classPrivateFieldGet2(_count, this)) {
+				var _this$count;
+				_classPrivateFieldSet2(_count, this, (_this$count = _classPrivateFieldGet2(_count, this), _this$count++, _this$count));
+			}
+			_classPrivateFieldGet2(_listeners, this)[temp] = listener;
+		}
+		_assertClassBrand(_Stream_brand, this, _replay).call(this, listener);
+		return () => {
+			if (_classPrivateFieldGet2(_alive, this) && subscribed) {
+				subscribed = false;
+				_classPrivateFieldGet2(_listeners, this)[temp] = void 0;
+				while (_classPrivateFieldGet2(_count, this) > 0 && !_classPrivateFieldGet2(_listeners, this)[_classPrivateFieldGet2(_count, this) - 1]) {
+					var _this$count3;
+					_classPrivateFieldSet2(_count, this, (_this$count3 = _classPrivateFieldGet2(_count, this), _this$count3--, _this$count3));
+				}
+				_classPrivateFieldGet2(_listeners, this).length = _classPrivateFieldGet2(_count, this);
+			}
+		};
+	}
+	next(value) {
+		if (_classPrivateFieldGet2(_alive, this)) {
+			_classPrivateFieldGet2(_buffer, this).push(value);
+			_assertClassBrand(_Stream_brand, this, _flush).call(this, value, "next");
+		}
+	}
+	throw(value) {
+		if (_classPrivateFieldGet2(_alive, this)) {
+			_classPrivateFieldGet2(_buffer, this).push(value);
+			_assertClassBrand(_Stream_brand, this, _flush).call(this, value, "throw");
+			_classPrivateFieldSet2(_alive, this, false);
+			_classPrivateFieldSet2(_success, this, false);
+			_classPrivateFieldGet2(_listeners, this).length = 0;
+		}
+	}
+	return(value) {
+		if (_classPrivateFieldGet2(_alive, this)) {
+			_classPrivateFieldGet2(_buffer, this).push(value);
+			_assertClassBrand(_Stream_brand, this, _flush).call(this, value, "return");
+			_classPrivateFieldSet2(_alive, this, false);
+			_classPrivateFieldSet2(_success, this, true);
+			_classPrivateFieldGet2(_listeners, this).length = 0;
+		}
+	}
+};
+function _flush(value, mode) {
+	for (let x = 0; x < _classPrivateFieldGet2(_count, this); x++) {
+		var _classPrivateFieldGet2$1;
+		(_classPrivateFieldGet2$1 = _classPrivateFieldGet2(_listeners, this)[x]) === null || _classPrivateFieldGet2$1 === void 0 || _classPrivateFieldGet2$1[mode](value);
+	}
+}
+function _replay(listener) {
+	for (let x = 0, z = _classPrivateFieldGet2(_buffer, this).length; x < z; x++) {
+		const current = _classPrivateFieldGet2(_buffer, this)[x];
+		if (!_classPrivateFieldGet2(_alive, this) && x === z - 1) listener[_classPrivateFieldGet2(_success, this) ? "return" : "throw"](current);
+		else listener.next(current);
+	}
+}
 function isStream(value) {
-	return "__SEROVAL_STREAM__" in value;
+	return value instanceof Stream;
 }
 function createStream() {
-	return STREAM_CONSTRUCTOR();
+	return new Stream();
 }
 function createStreamFromAsyncIterable(iterable, cleanups) {
 	const stream = createStream();
@@ -4719,7 +4842,7 @@ function guardIndexedValue(ctx, id) {
 	if (ctx.refs.has(id)) throw new Error("Conflicted ref id: " + id);
 }
 function isThennable(value) {
-	return !!value && typeof value === "object" && "then" in value && typeof value.then === "function";
+	return !!value && (typeof value === "object" || typeof value === "function") && "then" in value && typeof value.then === "function";
 }
 function assignIndexedValueVanilla(ctx, id, value) {
 	guardIndexedValue(ctx.base, id);
@@ -4741,8 +4864,12 @@ function deserializeKnownValue(node, record, key) {
 function deserializeReference(ctx, node) {
 	return assignIndexedValue$1(ctx, node.i, getReference(deserializeString(node.s)));
 }
+function validateNodeList(node, list) {
+	if (!Array.isArray(list)) throw new SerovalMalformedNodeError(node);
+}
 function deserializeArray(ctx, depth, node) {
 	const items = node.a;
+	validateNodeList(node, items);
 	const len = items.length;
 	const result = assignIndexedValue$1(ctx, node.i, new Array(len));
 	for (let i = 0, item; i < len; i++) {
@@ -4784,6 +4911,8 @@ function validateNodeType(ctx, node, id, type) {
 }
 function deserializeProperties(ctx, depth, node, result) {
 	const keys = node.k;
+	validateNodeList(node, keys);
+	validateNodeList(node, node.v);
 	if (keys.length > 0) for (let i = 0, vals = node.v, len = keys.length; i < len; i++) assignProperty(ctx, depth, result, keys[i], vals[i]);
 	return result;
 }
@@ -4838,11 +4967,14 @@ function deserializeRegExp(ctx, node) {
 }
 function deserializeSet(ctx, depth, node) {
 	const result = assignIndexedValue$1(ctx, node.i, /* @__PURE__ */ new Set());
+	validateNodeList(node, node.a);
 	for (let i = 0, items = node.a, len = items.length; i < len; i++) result.add(deserialize$1(ctx, depth, items[i]));
 	return result;
 }
 function deserializeMap(ctx, depth, node) {
 	const result = assignIndexedValue$1(ctx, node.i, /* @__PURE__ */ new Map());
+	validateNodeList(node, node.e.k);
+	validateNodeList(node, node.e.v);
 	for (let i = 0, keys = node.e.k, vals = node.e.v, len = keys.length; i < len; i++) result.set(deserialize$1(ctx, depth, keys[i]), deserialize$1(ctx, depth, vals[i]));
 	return result;
 }
@@ -4933,21 +5065,20 @@ function deserializePromiseFulfill(ctx, depth, node) {
 function deserializeIteratorFactoryInstance(ctx, depth, node) {
 	deserialize$1(ctx, depth, node.a[0]);
 	const source = deserialize$1(ctx, depth, node.a[1]);
-	validateNodeType(ctx, node, node.a[1].i, 35);
-	if (!source) throw new SerovalMalformedNodeError(node.a[1]);
+	if (!isSequence(source)) throw new SerovalMalformedNodeError(node.a[1]);
 	return sequenceToIterator(source);
 }
 function deserializeAsyncIteratorFactoryInstance(ctx, depth, node) {
 	deserialize$1(ctx, depth, node.a[0]);
 	const source = deserialize$1(ctx, depth, node.a[1]);
-	validateNodeType(ctx, node, node.a[1].i, 31);
-	if (!source) throw new SerovalMalformedNodeError(node.a[1]);
+	if (!isStream(source)) throw new SerovalMalformedNodeError(node.a[1]);
 	return streamToAsyncIterable(source);
 }
 function deserializeStreamConstructor(ctx, depth, node) {
 	const result = assignIndexedValue$1(ctx, node.i, createStream());
 	assignNodeType(ctx, node.i, 31);
 	const items = node.a;
+	validateNodeList(node, items);
 	const len = items.length;
 	if (len) for (let i = 0; i < len; i++) deserialize$1(ctx, depth, items[i]);
 	return result;
@@ -4985,10 +5116,15 @@ function deserializeIteratorFactory(ctx, depth, node) {
 function deserializeAsyncIteratorFactory(ctx, depth, node) {
 	deserialize$1(ctx, depth, node.a[1]);
 }
+function isSequenceIndex(value, size) {
+	return Number.isInteger(value) && value >= -1 && value < size;
+}
 function deserializeSequence(ctx, depth, node) {
+	validateNodeList(node, node.a);
+	const size = node.a.length;
+	if (!(isSequenceIndex(node.s, size) && isSequenceIndex(node.l, size))) throw new SerovalMalformedNodeError(node);
 	const result = assignIndexedValue$1(ctx, node.i, createSequence([], node.s, node.l));
-	assignNodeType(ctx, node.i, 35);
-	for (let i = 0, len = node.a.length; i < len; i++) result.v[i] = deserialize$1(ctx, depth, node.a[i]);
+	for (let i = 0; i < size; i++) result.v[i] = deserialize$1(ctx, depth, node.a[i]);
 	return result;
 }
 function deserialize$1(ctx, depth, node) {
@@ -6182,7 +6318,7 @@ function fromJSON(source, options = {}) {
 	}), source.t);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/CatchBoundary.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/CatchBoundary.js
 var import_jsx_runtime = require_jsx_runtime();
 var CatchBoundary = class extends import_react.Component {
 	constructor(..._args) {
@@ -6261,7 +6397,7 @@ function ErrorComponent({ error }) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/ClientOnly.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/ClientOnly.js
 var getSnapshot = () => true;
 var getServerSnapshot = () => false;
 /**
@@ -6292,10 +6428,10 @@ function subscribe() {
 	return () => {};
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/routerContext.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/routerContext.js
 var routerContext = import_react.createContext(null);
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useRouter.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useRouter.js
 /**
 * Access the current TanStack Router instance from React context.
 * Must be used within a `RouterProvider`.
@@ -6312,11 +6448,11 @@ function useRouter(opts) {
 	return value;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/matchContext.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/matchContext.js
 var matchContext = import_react.createContext(void 0);
 var dummyMatchContext = import_react.createContext(void 0);
 //#endregion
-//#region node_modules/.pnpm/@tanstack+store@0.11.1/node_modules/@tanstack/store/dist/alien.js
+//#region node_modules/.pnpm/@tanstack+store@0.11.2/node_modules/@tanstack/store/dist/alien.js
 /* @__NO_SIDE_EFFECTS__ */
 function createReactiveSystem({ update, notify, unwatched }) {
 	return {
@@ -6529,7 +6665,7 @@ function useMatch(opts) {
 	}
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useLoaderData.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useLoaderData.js
 /**
 * Read and select the current route's loader data with type‑safety.
 *
@@ -6552,7 +6688,7 @@ function useLoaderData(opts) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useLoaderDeps.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useLoaderDeps.js
 /**
 * Read and select the current route's loader dependencies object.
 *
@@ -6574,7 +6710,7 @@ function useLoaderDeps(opts) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useParams.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useParams.js
 /**
 * Access the current route's path parameters with type-safety.
 *
@@ -6600,7 +6736,7 @@ function useParams(opts) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useSearch.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useSearch.js
 /**
 * Read and select the current route's search parameters with type-safety.
 *
@@ -6625,7 +6761,7 @@ function useSearch(opts) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useNavigate.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useNavigate.js
 /**
 * Imperative navigation hook.
 *
@@ -6650,7 +6786,7 @@ function useNavigate(_defaultOpts) {
 	}, [_defaultOpts?.from, router]);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useRouteContext.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useRouteContext.js
 function useRouteContext(opts) {
 	return useMatch({
 		...opts,
@@ -6790,7 +6926,7 @@ function areLinkPropsEqual(prev, next) {
 	return extraKeys === 0;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/route.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/route.js
 var Route = class extends BaseRoute {
 	/**
 	* @deprecated Use the `createRoute` function instead.
@@ -6941,7 +7077,7 @@ function createRootRoute(options) {
 	return new RootRoute(options);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/fileRoute.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/fileRoute.js
 /**
 * Creates a file-based Route factory for a given path.
 *
@@ -6961,7 +7097,7 @@ function createFileRoute(path) {
 	};
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/lazyRouteComponent.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/lazyRouteComponent.js
 /**
 * Wrap a dynamic import to create a route component that supports
 * `.preload()` and friendly reload-on-module-missing behavior.
@@ -7000,7 +7136,7 @@ function lazyRouteComponent(importer, exportName) {
 	return lazyComp;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/not-found.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/not-found.js
 function CatchNotFound(props) {
 	const router = useRouter();
 	{
@@ -7023,7 +7159,7 @@ function DefaultGlobalNotFound() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Not Found" });
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/ScriptOnce.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/ScriptOnce.js
 /**
 * Server-only helper to emit a script tag exactly once during SSR.
 */
@@ -7035,12 +7171,7 @@ function ScriptOnce({ children }) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/SafeFragment.js
-function SafeFragment(props) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: props.children });
-}
-//#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/renderRouteNotFound.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/renderRouteNotFound.js
 /**
 * Renders a not found component for a route when no matching route is found.
 *
@@ -7057,10 +7188,10 @@ function renderRouteNotFound(router, route, data) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(route.options.notFoundComponent, { ...data });
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/scroll-restoration-inline.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/scroll-restoration-inline.js
 var scroll_restoration_inline_default = "function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||\"{}\")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t===\"window\")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)}";
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/scroll-restoration-script/server.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/scroll-restoration-script/server.js
 var defaultInlineScrollRestorationScript = `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))})`;
 function getScrollRestorationScript(key) {
 	if (key === void 0) return defaultInlineScrollRestorationScript;
@@ -7076,14 +7207,14 @@ function getScrollRestorationScriptForRouter(router) {
 	return getScrollRestorationScript(userKey);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/scroll-restoration.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/scroll-restoration.js
 function ScrollRestoration() {
 	const script = getScrollRestorationScriptForRouter(useRouter());
 	if (!script) return null;
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScriptOnce, { children: script });
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Match.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Match.js
 function renderPending(router, route) {
 	const PendingComponent = route?.options.pendingComponent ?? router.options.defaultPendingComponent;
 	if (!PendingComponent) return null;
@@ -7104,37 +7235,42 @@ function MatchView({ router, match }) {
 	const routeOnCatch = route.options.onCatch ?? router.options.defaultOnCatch;
 	const routeNotFoundComponent = route.isRoot ? route.options.notFoundComponent ?? router.options.notFoundRoute?.options.component : route.options.notFoundComponent;
 	const resolvedNoSsr = match.ssr === false || match.ssr === "data-only";
-	const ResolvedSuspenseBoundary = canWrapInSuspense(router, route, match.ssr) && (route.options.wrapInSuspense ?? pendingElement ?? (route.options.errorComponent?.preload || resolvedNoSsr)) ? import_react.Suspense : SafeFragment;
-	const ResolvedCatchBoundary = routeErrorComponent ? CatchBoundary : SafeFragment;
-	const ResolvedNotFoundBoundary = routeNotFoundComponent ? CatchNotFound : SafeFragment;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(route.isRoot ? route.options.shellComponent ?? SafeFragment : SafeFragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(matchContext.Provider, {
+	const wrapInSuspense = canWrapInSuspense(router, route, match.ssr) && (route.options.wrapInSuspense ?? pendingElement ?? (route.options.errorComponent?.preload || resolvedNoSsr));
+	let content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchInner, { match });
+	if (resolvedNoSsr) content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClientOnly, {
+		fallback: pendingElement,
+		children: content
+	});
+	if (routeNotFoundComponent) content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchNotFound, {
+		fallback: (error) => {
+			error.routeId ??= match.routeId;
+			if (error.routeId !== match.routeId) throw error;
+			return import_react.createElement(routeNotFoundComponent, error);
+		},
+		children: content
+	});
+	if (routeErrorComponent) content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundary, {
+		getResetKey: () => match,
+		errorComponent: routeErrorComponent,
+		onCatch: (error, errorInfo) => {
+			if (isNotFound(error)) {
+				error.routeId ??= match.routeId;
+				throw error;
+			}
+			routeOnCatch?.(error, errorInfo);
+		},
+		children: content
+	});
+	if (wrapInSuspense) content = /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react.Suspense, {
+		fallback: pendingElement,
+		children: content
+	});
+	const scrollRestoration = route.parentRoute?.id === "__root__" && router.options.scrollRestoration ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScrollRestoration, {}) : null;
+	const ShellComponent = route.isRoot ? route.options.shellComponent : void 0;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(matchContext.Provider, {
 		value: match.routeId,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedSuspenseBoundary, {
-			fallback: pendingElement,
-			children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedCatchBoundary, {
-				getResetKey: () => match,
-				errorComponent: routeErrorComponent,
-				onCatch: (error, errorInfo) => {
-					if (isNotFound(error)) {
-						error.routeId ??= match.routeId;
-						throw error;
-					}
-					routeOnCatch?.(error, errorInfo);
-				},
-				children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedNotFoundBoundary, {
-					fallback: (error) => {
-						error.routeId ??= match.routeId;
-						if (error.routeId !== match.routeId) throw error;
-						return import_react.createElement(routeNotFoundComponent, error);
-					},
-					children: resolvedNoSsr ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ClientOnly, {
-						fallback: pendingElement,
-						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchInner, { match })
-					}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchInner, { match })
-				})
-			})
-		})
-	}), route.parentRoute?.id === "__root__" && router.options.scrollRestoration ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScrollRestoration, {}) : null] });
+		children: ShellComponent ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(ShellComponent, { children: [content, scrollRestoration] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [content, scrollRestoration] })
+	});
 }
 var MatchInner = import_react.memo(function MatchInnerImpl({ match }) {
 	const router = useRouter();
@@ -7207,14 +7343,14 @@ var Outlet = import_react.memo(function OutletImpl() {
 	return nextMatch;
 });
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Transitioner.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Transitioner.js
 function settleOwner(owner, rendered) {
 	const settle = owner[1];
 	owner.length = 0;
 	settle?.(rendered);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Matches.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Matches.js
 /**
 * Internal component that renders the router's active match tree with
 * suspense, error, and not-found boundaries. Rendered by `RouterProvider`.
@@ -7222,12 +7358,8 @@ function settleOwner(owner, rendered) {
 function Matches() {
 	const router = useRouter();
 	const rootRoute = router.routesById[rootRouteId];
-	const pendingElement = renderPending(router, rootRoute);
-	const ResolvedSuspense = SafeFragment;
-	const inner = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [false, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ResolvedSuspense, {
-		fallback: pendingElement,
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchesInner, {})
-	})] });
+	renderPending(router, rootRoute);
+	const inner = /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [false, /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MatchesInner, {})] });
 	return router.options.InnerWrap ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(router.options.InnerWrap, { children: inner }) : inner;
 }
 function MatchesInner() {
@@ -7240,17 +7372,14 @@ function MatchesInner() {
 		if (acknowledgement[0] === matches) settleOwner(acknowledgement, true);
 	}, [acknowledgement, matches]);
 	const matchComponent = routeId ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Match, { routeId }) : null;
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(matchContext.Provider, {
-		value: routeId,
-		children: router.options.disableGlobalCatchBoundary ? matchComponent : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundary, {
-			getResetKey: () => match,
-			onCatch: void 0,
-			children: matchComponent
-		})
+	return router.options.disableGlobalCatchBoundary ? matchComponent : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CatchBoundary, {
+		getResetKey: () => match,
+		onCatch: void 0,
+		children: matchComponent
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/routerStores.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/routerStores.js
 var getStoreFactory = (opts) => {
 	return {
 		createMutableStore: createNonReactiveMutableStore,
@@ -7259,7 +7388,7 @@ var getStoreFactory = (opts) => {
 	};
 };
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/router.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/router.js
 /**
 * Creates a new Router instance for React.
 *
@@ -7280,7 +7409,7 @@ var Router = class extends RouterCore {
 	}
 };
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/RouterProvider.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/RouterProvider.js
 /**
 * Low-level provider that places the router into React context and optionally
 * updates router options from props. Most apps should use `RouterProvider`.
@@ -7318,7 +7447,7 @@ function RouterProvider({ router, ...rest }) {
 	});
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useLocation.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/useLocation.js
 /**
 * Read the current location from the router state with optional selection.
 * Useful for subscribing to just the pieces of location you care about.
@@ -7338,7 +7467,7 @@ function useLocation(opts) {
 	}
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Asset.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Asset.js
 var noopScriptHandler = () => {};
 function setScriptAttrs(script, attrs) {
 	if (!attrs) return;
@@ -7434,7 +7563,7 @@ function Script({ attrs, children, preventScriptHoist }) {
 	return null;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/headContentUtils.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/headContentUtils.js
 function buildTagsFromMatches(router, nonce, matches, assetCrossOrigin) {
 	matches = _getAssetMatches(matches);
 	const routeMeta = matches.map((match) => match.meta).filter((meta) => meta !== void 0);
@@ -7564,7 +7693,7 @@ var useTags = (assetCrossOrigin) => {
 	return buildTagsFromMatches(router, nonce, router.stores.matches.get(), assetCrossOrigin);
 };
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/HeadContent.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/HeadContent.js
 /**
 * Render route-managed head tags (title, meta, links, styles, head scripts).
 * Place inside the document head of your app shell.
@@ -7580,7 +7709,7 @@ function HeadContent(props) {
 	})) });
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Scripts.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/Scripts.js
 var routeScriptAttrs = { suppressHydrationWarning: true };
 /**
 * Render body script tags collected from route matches and SSR manifests.
@@ -7607,13 +7736,13 @@ function renderScripts(scripts) {
 	})) });
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/constants.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/constants.js
 var GLOBAL_TSR = "$_TSR";
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/tsrScript.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/tsrScript.js
 var tsrScript_default = "self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]}";
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/htmlBoundaryScanner.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/htmlBoundaryScanner.js
 var textEncoder = new TextEncoder();
 var DOCUMENT_CLOSE = "</body></html>";
 var SCRIPT_CLOSE = "<\/script>";
@@ -7686,7 +7815,7 @@ function getExactBytesPrefixAtEnd(value, pattern, startIndex = 0) {
 	}
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/hydrationScripts.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/hydrationScripts.js
 var encoder = new TextEncoder();
 var SOURCE_SEPARATOR = ";";
 var MAX_INITIAL_SOURCE_CODE_UNITS = 16384;
@@ -8062,15 +8191,19 @@ function createHydrationScripts(nonce, initialSources) {
 	return new HydrationScriptsOwner(nonce, initialSources);
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/handlerCallback.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/handlerCallback.js
 function isSsrResponse(value) {
-	return typeof value === "object" && value !== null && "response" in value && "serverSsrCleanup" in value;
+	if (typeof value !== "object" || value === null || !("response" in value) || !(value.response instanceof Response) || !("serverSsrCleanup" in value)) return false;
+	if (value.serverSsrCleanup === "none") return true;
+	return value.serverSsrCleanup === "stream" && "dispose" in value && typeof value.dispose === "function";
 }
 function normalizeSsrResponse(result) {
-	return isSsrResponse(result) ? result : {
+	if (result instanceof Response) return {
 		response: result,
 		serverSsrCleanup: "none"
 	};
+	if (isSsrResponse(result)) return result;
+	throw new TypeError("Expected a Response from the SSR handler");
 }
 function cancelResponseBody(response, reason) {
 	const body = response.body;
@@ -8144,7 +8277,7 @@ function defineHandlerCallback(handler) {
 	return handler;
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+router-core@1.171.32/node_modules/@tanstack/router-core/dist/esm/ssr/transformStreamWithRouter.js
+//#region node_modules/.pnpm/@tanstack+router-core@1.171.34/node_modules/@tanstack/router-core/dist/esm/ssr/transformStreamWithRouter.js
 var DEFAULT_SERIALIZATION_TIMEOUT_MS = 6e4;
 var MIN_APPLICATION_STRING_CHUNK_BYTES = 256;
 var MAX_APPLICATION_STRING_CHUNK_BYTES = 65536;
@@ -17356,7 +17489,7 @@ function isBot(userAgent) {
 }
 var isbot = isBot;
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router@1.170.39_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/ssr/renderRouterToStream.js
+//#region node_modules/.pnpm/@tanstack+react-router@1.170.41_react-dom@19.3.0_react@19.3.0__react@19.3.0/node_modules/@tanstack/react-router/dist/esm/ssr/renderRouterToStream.js
 var renderRouterToStream = async ({ request, router, responseHeaders, children }) => {
 	const signal = request.signal;
 	if (signal.aborted) {

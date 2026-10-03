@@ -1,6 +1,6 @@
 import { __exportAll } from "../_runtime.mjs";
 import { H3Event, setCookie, toResponse } from "../_libs/h3+rou3+srvx.mjs";
-import { __exportAll as __exportAll$1 } from "./auth-Df-DNhOj.mjs";
+import { __exportAll as __exportAll$1 } from "./auth-B7-4QdFw.mjs";
 import { require_jsx_runtime, require_react } from "../_libs/@base-ui/react+[...].mjs";
 import { RouterProvider, _getRenderedMatches, bindSsrResponseToRequest, defineHandlerCallback, disposeSsrResponse, executeRewriteInput, fromJSON, getScriptPreloadAttrs, getStylesheetHref, invariant, isDangerousProtocol, isNotFound, isPromise, isRedirect, isSsrResponse, normalizeSsrResponse, parseRedirect, renderRouterToStream, replaceSsrResponse, resolveManifestAssetLink, resolveManifestCssLink, rootRouteId, stripSsrResponseBody, toCrossJSONAsync, toCrossJSONStream, waitForReason } from "../_libs/@tanstack/react-router+[...].mjs";
 import { createServerHistory } from "../_libs/tanstack__history.mjs";
@@ -32,7 +32,7 @@ var globalObj$1 = globalThis;
 if (!globalObj$1[GLOBAL_EVENT_STORAGE_KEY]) globalObj$1[GLOBAL_EVENT_STORAGE_KEY] = new AsyncLocalStorage();
 var eventStorage = globalObj$1[GLOBAL_EVENT_STORAGE_KEY];
 function isPromiseLike(value) {
-	return typeof value.then === "function";
+	return (typeof value === "object" || typeof value === "function") && value !== null && typeof value.then === "function";
 }
 function getSetCookieValues(headers) {
 	const headersWithSetCookie = headers;
@@ -49,13 +49,23 @@ function mergeEventResponseHeaders(response, event) {
 	for (const cookie of responseSetCookies) response.headers.append("set-cookie", cookie);
 	for (const cookie of eventSetCookies) response.headers.append("set-cookie", cookie);
 }
-function attachResponseHeaders(value, event) {
-	if (isPromiseLike(value)) return value.then((resolved) => {
-		if (resolved instanceof Response) mergeEventResponseHeaders(resolved, event);
-		return resolved;
-	});
-	if (value instanceof Response) mergeEventResponseHeaders(value, event);
-	return value;
+function finalizeResponse(value, event) {
+	const response = ensureResponse(value);
+	mergeEventResponseHeaders(response, event);
+	return response;
+}
+function finalizeMaybeResponse(value, event) {
+	if (isPromiseLike(value)) return Promise.resolve(value).then((resolved) => finalizeResponse(resolved, event), (error) => finalizeResponse(handleResponseError(error), event));
+	return finalizeResponse(value, event);
+}
+function ensureResponse(value) {
+	if (value instanceof Response) return value;
+	return new Response("Internal Server Error", { status: 500 });
+}
+function handleResponseError(error) {
+	if (error instanceof Response) return error;
+	if (error instanceof Error) throw error;
+	return new Response("Internal Server Error", { status: 500 });
 }
 function requestHandler(handler) {
 	return (request, requestOpts) => {
@@ -69,7 +79,13 @@ function requestHandler(handler) {
 			});
 			throw error;
 		}
-		return toResponse(attachResponseHeaders(eventStorage.run({ h3Event }, () => handler(request, requestOpts)), h3Event), h3Event);
+		let response;
+		try {
+			response = eventStorage.run({ h3Event }, () => handler(request, requestOpts));
+		} catch (error) {
+			response = handleResponseError(error);
+		}
+		return toResponse(finalizeMaybeResponse(response, h3Event), h3Event);
 	};
 }
 function getH3Event() {
@@ -106,7 +122,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-C90tKjg-.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BQbOeEJz.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -128,31 +144,31 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"062238d278066e27f0c7e27c12aeedaa6c0aa5a28c064a972d718e5cd04504ce": {
 		functionName: "requireAdmin_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	},
 	"125f380cda88571a5c485f309249b9ac3239a48a48f2bc5c3bba53b8c39d9b7f": {
 		functionName: "redirectIfAuthenticated_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	},
 	"16dd413e21928919add2cdf613bba9b84b0e73157b5036c662df9b8738bb0231": {
 		functionName: "requireAuth_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	},
 	"1ab1028a9a60a3942a55a43ecba392fa3f2fcfd2531ec9b8bcd21aa80bf33328": {
 		functionName: "requireMaker_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	},
 	"1e8ae7ddd7c9241806afb484a606488ae1e18dc319e2b3843f5d2b7e0bf394d5": {
 		functionName: "requireInvestor_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	},
 	"2b4215b2662496bf75671ce62ce47b83c24c8483470eec7856b204681a227c40": {
 		functionName: "requireTester_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	},
 	"cf2fd1943bab8397c7dc0d44f21f21ab4ff72d5fd803139cc138d8a0af25438c": {
 		functionName: "requireAuthForRoles_createServerFn_handler",
-		importer: () => import("./auth.middleware-gfccTDQH.mjs")
+		importer: () => import("./auth.middleware-SCt9uG_W.mjs")
 	}
 };
 async function getServerFnById(id, access) {
@@ -431,10 +447,10 @@ var createServerFn = (options, __opts) => {
 		options: resolvedOptions,
 		middleware: (middleware) => {
 			const newMiddleware = [...resolvedOptions.middleware || []];
-			middleware.map((m) => {
-				if (TSS_SERVER_FUNCTION_FACTORY in m) {
-					if (m.options.middleware) newMiddleware.push(...m.options.middleware);
-				} else newMiddleware.push(m);
+			middleware.forEach((item) => {
+				if (TSS_SERVER_FUNCTION_FACTORY in item) {
+					if (item.options.middleware) newMiddleware.push(...item.options.middleware);
+				} else newMiddleware.push(item);
 			});
 			const res = createServerFn(void 0, {
 				...resolvedOptions,
@@ -476,7 +492,8 @@ var createServerFn = (options, __opts) => {
 					const serverContextAfterGlobalMiddlewares = startContext.contextAfterGlobalMiddlewares;
 					return await executeMiddleware$1(resolvedMiddleware, "server", {
 						...extractedFn,
-						...opts,
+						data: opts.data,
+						method: opts.method ?? resolvedOptions.method,
 						serverFnMeta: extractedFn.serverFnMeta,
 						context: safeObjectMerge(opts.context, serverContextAfterGlobalMiddlewares),
 						request: startContext.request
@@ -741,19 +758,23 @@ var handleServerAction = async ({ request, context, serverFnId }) => {
 		} else if (methodUpper === "GET") {
 			const payloadParam = url.searchParams.get("payload");
 			if (payloadParam && payloadParam.length > MAX_PAYLOAD_SIZE) throw new Error("Payload too large");
-			const payload = payloadParam ? fromJSON(JSON.parse(payloadParam), { plugins: serovalPlugins }) : {};
-			payload.context = safeObjectMerge(payload.context, context);
-			payload.method = methodUpper;
-			res = await action(payload);
+			const payload = payloadParam ? fromJSON(JSON.parse(payloadParam), { plugins: serovalPlugins }) : void 0;
+			res = await action({
+				data: payload?.data,
+				context: safeObjectMerge(payload?.context, context),
+				method: methodUpper
+			});
 		} else {
-			const payload = contentType?.includes("application/json") ? fromJSON(await request.json(), { plugins: serovalPlugins }) : {};
-			payload.context = safeObjectMerge(payload.context, context);
-			payload.method = methodUpper;
-			res = await action(payload);
+			const payload = contentType?.includes("application/json") ? fromJSON(await request.json(), { plugins: serovalPlugins }) : void 0;
+			res = await action({
+				data: payload?.data,
+				context: safeObjectMerge(payload?.context, context),
+				method: methodUpper
+			});
 		}
-		const unwrapped = res.result !== void 0 ? res.result : res.error;
+		const unwrapped = res.error !== void 0 ? res.error : res.result;
 		if (isNotFound(res)) res = isNotFoundResponse(res);
-		if (!isServerFn) return unwrapped;
+		if (!isServerFn && (unwrapped instanceof Response || unwrapped === null || typeof unwrapped !== "object")) return unwrapped;
 		if (unwrapped instanceof Response) {
 			if (isRedirect(unwrapped)) return unwrapped;
 			unwrapped.headers.set(X_TSS_RAW_RESPONSE, "true");
@@ -977,13 +998,12 @@ function serializeResult(res, signal, plugins) {
 }
 function isNotFoundResponse(error) {
 	const { headers, ...rest } = error;
-	return new Response(JSON.stringify(rest), {
+	const response = new Response(JSON.stringify(rest), {
 		status: 404,
-		headers: {
-			"Content-Type": "application/json",
-			...headers || {}
-		}
+		headers
 	});
+	response.headers.set("Content-Type", "application/json");
+	return response;
 }
 var LINK_PARAM_TOKEN_RE = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
 var PRELOAD_AS_VALUES = /* @__PURE__ */ new Set([
@@ -1528,7 +1548,14 @@ var ServerFunctionSerializationAdapter = createSerializationAdapter({
 	toSerializable: ({ serverFnMeta }) => ({ functionId: serverFnMeta.id }),
 	fromSerializable: ({ functionId }) => {
 		const fn = async (opts, signal) => {
-			return (await (await getServerFnById(functionId, { origin: "client" }))(opts ?? {}, signal)).result;
+			const serverFn = await getServerFnById(functionId, { origin: "client" });
+			const result = await serverFn({
+				data: opts?.data,
+				context: opts?.context,
+				method: serverFn.method ?? "GET"
+			}, signal);
+			if (result.error !== void 0) throw result.error;
+			return result.result;
 		};
 		return fn;
 	}
@@ -1546,9 +1573,9 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-I233s1zP.mjs").then((n) => n.router_exports),
-		import("./start-6VS_MKXS.mjs"),
-		import("./empty-plugin-adapters-DXDwBipW.mjs")
+		import("./router-BslPm4vw.mjs").then((n) => n.router_exports),
+		import("./start-D9507Eam.mjs"),
+		import("./empty-plugin-adapters-WMnrlEyV.mjs")
 	]);
 	return {
 		routerEntry,
@@ -1943,6 +1970,20 @@ async function handleRedirectResponse(response, getRouter, signal, serializeRedi
 	}
 	return ssrResponse;
 }
+function withParsedParams(handler, matchedRoutes) {
+	if (!matchedRoutes.some((route) => route.options.params?.parse ?? route.options.parseParams)) return handler;
+	return (ctx) => {
+		const params = Object.assign(Object.create(null), ctx.params);
+		for (const route of matchedRoutes) {
+			const parse = route.options.params?.parse ?? route.options.parseParams;
+			if (parse) Object.assign(params, parse(params));
+		}
+		return handler({
+			...ctx,
+			params
+		});
+	};
+}
 async function handleServerRoutes({ getRouter, request, url, executeRouter, context, executedRequestMiddlewares }) {
 	const router = await getRouter();
 	const pathname = executeRewriteInput(router.rewrite, url).pathname;
@@ -1965,19 +2006,19 @@ async function handleServerRoutes({ getRouter, request, url, executeRouter, cont
 		const handler = requestMethod === "HEAD" ? handlers["HEAD"] ?? handlers["GET"] ?? handlers["ANY"] : handlers[requestMethod] ?? handlers["ANY"];
 		if (handler) {
 			const mayDefer = !!foundRoute.options.component;
-			if (typeof handler === "function") if (!mayDefer) {
-				terminalHandler = handler;
-				terminalNext = throwIfMayNotDefer;
-			} else routeMiddlewares.push(handler);
-			else {
+			if (typeof handler !== "function") {
 				if (handler.middleware?.length) {
 					const handlerMiddlewares = flattenMiddlewares(handler.middleware);
 					for (const m of handlerMiddlewares) routeMiddlewares.push(m.options.server);
 				}
-				if (handler.handler) if (!mayDefer) {
-					terminalHandler = handler.handler;
+			}
+			const routeHandler = typeof handler === "function" ? handler : handler.handler;
+			if (routeHandler) {
+				const parsedHandler = withParsedParams(routeHandler, matchedRoutes);
+				if (!mayDefer) {
+					terminalHandler = parsedHandler;
 					terminalNext = throwIfMayNotDefer;
-				} else routeMiddlewares.push(handler.handler);
+				} else routeMiddlewares.push(parsedHandler);
 			}
 		}
 	}

@@ -1,0 +1,1 @@
+import{u as e}from"./index-0aufLg--.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`Hello "/dashboard/admin/"!`})}export{n as component};

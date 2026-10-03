@@ -1,0 +1,1 @@
+import{n as e,u as t}from"./index-0aufLg--.js";var n=t(),r=()=>(0,n.jsx)(e,{});export{r as component};

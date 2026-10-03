@@ -3,7 +3,7 @@ import { require_jsx_runtime, require_react } from "../@base-ui/react+[...].mjs"
 import "./react-router+[...].mjs";
 import { QueryClientProvider } from "../tanstack__react-query.mjs";
 import { dehydrateQuery } from "../tanstack__query-core.mjs";
-//#region node_modules/.pnpm/@tanstack+router-ssr-query-core@1.169.3_@tanstack+query-core@5.103.2_@tanstack+router-core@1.171.32/node_modules/@tanstack/router-ssr-query-core/dist/esm/index.js
+//#region node_modules/.pnpm/@tanstack+router-ssr-query-core@1.169.3_@tanstack+query-core@5.103.2_@tanstack+router-core@1.171.34/node_modules/@tanstack/router-ssr-query-core/dist/esm/index.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var shouldDehydrateAllQueries = () => true;
 function setupCoreRouterSsrQueryIntegration({ router, queryClient, dehydrateOptions, hydrateOptions, handleRedirects = true }) {
@@ -108,7 +108,7 @@ function setupCoreRouterSsrQueryIntegration({ router, queryClient, dehydrateOpti
 	}
 }
 //#endregion
-//#region node_modules/.pnpm/@tanstack+react-router-ssr-query@1.167.3_@tanstack+query-core@5.103.2_@tanstack+react-query@5_ixmctdmlbrykra3au3tmlrixbu/node_modules/@tanstack/react-router-ssr-query/dist/esm/index.js
+//#region node_modules/.pnpm/@tanstack+react-router-ssr-query@1.167.3_@tanstack+query-core@5.103.2_@tanstack+react-query@5_adovgqg3gb7iqlk3qrgmo53dma/node_modules/@tanstack/react-router-ssr-query/dist/esm/index.js
 var import_jsx_runtime = require_jsx_runtime();
 function setupRouterSsrQueryIntegration(opts) {
 	setupCoreRouterSsrQueryIntegration(opts);

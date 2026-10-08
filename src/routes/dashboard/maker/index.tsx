@@ -1,8 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { requireMaker } from '#/lib/auth.middleware'
+import { requireVerifiedMaker } from '#/lib/auth.middleware'
 
 export const Route = createFileRoute('/dashboard/maker/')({
-  beforeLoad: () => requireMaker(),
+  beforeLoad: () => requireVerifiedMaker(),
   component: RouteComponent,
 })
 

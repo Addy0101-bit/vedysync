@@ -35,7 +35,11 @@ function Roles() {
       if (updateError) {
         setError(updateError.message || 'Failed to update role')
       } else {
-        navigate({ to: '/' })
+        if (role === 'maker') {
+          navigate({ to: '/onboarding/maker' })
+        } else {
+          navigate({ to: '/' })
+        }
       }
     } catch (err: any) {
       setError(err.message || 'An error occurred')

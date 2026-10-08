@@ -16,22 +16,32 @@ enum Role {
   maker
   investor
   admin
+  tester
   user
 }
 
+enum VerificationStatus {
+  unverified
+  pending
+  verified
+  rejected
+}
+
 model User {
-  id            String    @id
-  role          Role?
-  hasChosenRole Boolean   @default(false)
-  name          String
-  email         String
-  emailVerified Boolean   @default(false)
-  image         String?
-  avatarConfig  String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+  id                 String             @id
+  verificationStatus VerificationStatus @default(unverified)
+  role               Role?
+  hasChosenRole      Boolean            @default(false)
+  name               String
+  email              String
+  emailVerified      Boolean            @default(false)
+  image              String?
+  avatarConfig       String?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  sessions           Session[]
+  accounts           Account[]
+  maker              Maker?
 
   @@unique([email])
   @@map("user")
@@ -95,4 +105,24 @@ model Marketplace {
   updatedAt DateTime  @updatedAt
 
   @@map("marketplace")
+}
+
+model Maker {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firstName           String
+  middleName          String?
+  lastName            String
+  dob                 DateTime
+  specialization      String
+  registrationNumber  String
+  degreeFileUrl       String
+  registrationFileUrl String
+  idProofType         String
+  idProofFileUrl      String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("makers")
 }

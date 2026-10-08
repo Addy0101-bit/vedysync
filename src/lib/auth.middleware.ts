@@ -6,9 +6,12 @@ import { auth } from './auth'
 export const redirectIfAuthenticated = createServerFn({ method: 'GET' }).handler(async () => {
   const headers = getRequestHeaders()
   const session = await auth.api.getSession({ headers })
-  
+
   if (session) {
     if (session.user.hasChosenRole) {
+      if (session.user.role === 'maker' && session.user.verificationStatus !== 'verified') {
+        throw redirect({ to: '/onboarding/maker' })
+      }
       throw redirect({ to: '/' })
     } else {
       throw redirect({ to: '/auth/roles' })
@@ -19,11 +22,14 @@ export const redirectIfAuthenticated = createServerFn({ method: 'GET' }).handler
 export const requireAuthForRoles = createServerFn({ method: 'GET' }).handler(async () => {
   const headers = getRequestHeaders()
   const session = await auth.api.getSession({ headers })
-  
+
   if (!session) {
     throw redirect({ to: '/auth/login' })
   }
   if (session.user.hasChosenRole) {
+    if (session.user.role === 'maker' && session.user.verificationStatus !== 'verified') {
+      throw redirect({ to: '/onboarding/maker' })
+    }
     throw redirect({ to: '/' })
   }
 })
@@ -31,7 +37,7 @@ export const requireAuthForRoles = createServerFn({ method: 'GET' }).handler(asy
 export const requireAuth = createServerFn({ method: 'GET' }).handler(async () => {
   const headers = getRequestHeaders()
   const session = await auth.api.getSession({ headers })
-  
+
   if (!session) {
     throw redirect({ to: '/auth/login' })
   }
@@ -52,6 +58,15 @@ export const requireMaker = createServerFn({ method: 'GET' }).handler(async () =
   const session = await auth.api.getSession({ headers })
   if (!session) throw redirect({ to: '/auth/login' })
   if (session.user.role !== 'maker') throw redirect({ to: '/' })
+  return { session }
+})
+
+export const requireVerifiedMaker = createServerFn({ method: 'GET' }).handler(async () => {
+  const headers = getRequestHeaders()
+  const session = await auth.api.getSession({ headers })
+  if (!session) throw redirect({ to: '/auth/login' })
+  if (session.user.role !== 'maker') throw redirect({ to: '/' })
+  if (session.user.verificationStatus !== 'verified') throw redirect({ to: '/onboarding/maker' })
 })
 
 export const requireInvestor = createServerFn({ method: 'GET' }).handler(async () => {

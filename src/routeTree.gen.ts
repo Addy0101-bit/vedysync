@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DashboardRouteRouteImport } from './routes/dashboard/route'
+import { Route as ApiUploadthingRouteImport } from './routes/api/uploadthing'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth/forgot-password'
 import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthRolesRouteImport } from './routes/auth/roles'
@@ -25,6 +26,7 @@ import { Route as DashboardAdminUserRouteImport } from './routes/dashboard/admin
 import { Route as DashboardInvestorIndexRouteImport } from './routes/dashboard/investor/index'
 import { Route as DashboardMakerIndexRouteImport } from './routes/dashboard/maker/index'
 import { Route as DashboardTesterIndexRouteImport } from './routes/dashboard/tester/index'
+import { Route as OnboardingMakerIndexRouteImport } from './routes/onboarding/maker/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -44,6 +46,11 @@ const ContactRoute = ContactRouteImport.update({
 const DashboardRouteRoute = DashboardRouteRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiUploadthingRoute = ApiUploadthingRouteImport.update({
+  id: '/api/uploadthing',
+  path: '/api/uploadthing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
@@ -106,6 +113,11 @@ const DashboardTesterIndexRoute = DashboardTesterIndexRouteImport.update({
   path: '/tester/',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const OnboardingMakerIndexRoute = OnboardingMakerIndexRouteImport.update({
+  id: '/onboarding/maker/',
+  path: '/onboarding/maker/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -113,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dashboard/admin': typeof DashboardAdminRouteRouteWithChildren
+  '/api/uploadthing': typeof ApiUploadthingRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/roles': typeof AuthRolesRoute
@@ -124,12 +137,14 @@ export interface FileRoutesByFullPath {
   '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
   '/dashboard/tester/': typeof DashboardTesterIndexRoute
+  '/onboarding/maker/': typeof OnboardingMakerIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard': typeof DashboardRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/api/uploadthing': typeof ApiUploadthingRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/roles': typeof AuthRolesRoute
@@ -141,6 +156,7 @@ export interface FileRoutesByTo {
   '/dashboard/investor': typeof DashboardInvestorIndexRoute
   '/dashboard/maker': typeof DashboardMakerIndexRoute
   '/dashboard/tester': typeof DashboardTesterIndexRoute
+  '/onboarding/maker': typeof OnboardingMakerIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -149,6 +165,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dashboard/admin': typeof DashboardAdminRouteRouteWithChildren
+  '/api/uploadthing': typeof ApiUploadthingRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
   '/auth/roles': typeof AuthRolesRoute
@@ -160,6 +177,7 @@ export interface FileRoutesById {
   '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
   '/dashboard/tester/': typeof DashboardTesterIndexRoute
+  '/onboarding/maker/': typeof OnboardingMakerIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -169,6 +187,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/dashboard/admin'
+    | '/api/uploadthing'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/roles'
@@ -180,12 +199,14 @@ export interface FileRouteTypes {
     | '/dashboard/investor/'
     | '/dashboard/maker/'
     | '/dashboard/tester/'
+    | '/onboarding/maker/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/dashboard'
     | '/about'
     | '/contact'
+    | '/api/uploadthing'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/roles'
@@ -197,6 +218,7 @@ export interface FileRouteTypes {
     | '/dashboard/investor'
     | '/dashboard/maker'
     | '/dashboard/tester'
+    | '/onboarding/maker'
   id:
     | '__root__'
     | '/'
@@ -204,6 +226,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/dashboard/admin'
+    | '/api/uploadthing'
     | '/auth/forgot-password'
     | '/auth/login'
     | '/auth/roles'
@@ -215,6 +238,7 @@ export interface FileRouteTypes {
     | '/dashboard/investor/'
     | '/dashboard/maker/'
     | '/dashboard/tester/'
+    | '/onboarding/maker/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -222,11 +246,13 @@ export interface RootRouteChildren {
   DashboardRouteRoute: typeof DashboardRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  ApiUploadthingRoute: typeof ApiUploadthingRoute
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
   AuthLoginRoute: typeof AuthLoginRoute
   AuthRolesRoute: typeof AuthRolesRoute
   AuthSignupRoute: typeof AuthSignupRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  OnboardingMakerIndexRoute: typeof OnboardingMakerIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -257,6 +283,13 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/uploadthing': {
+      id: '/api/uploadthing'
+      path: '/api/uploadthing'
+      fullPath: '/api/uploadthing'
+      preLoaderRoute: typeof ApiUploadthingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth/forgot-password': {
@@ -343,6 +376,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardTesterIndexRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/onboarding/maker/': {
+      id: '/onboarding/maker/'
+      path: '/onboarding/maker'
+      fullPath: '/onboarding/maker/'
+      preLoaderRoute: typeof OnboardingMakerIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -384,11 +424,13 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRouteRoute: DashboardRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  ApiUploadthingRoute: ApiUploadthingRoute,
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
   AuthLoginRoute: AuthLoginRoute,
   AuthRolesRoute: AuthRolesRoute,
   AuthSignupRoute: AuthSignupRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  OnboardingMakerIndexRoute: OnboardingMakerIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

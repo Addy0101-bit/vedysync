@@ -54,12 +54,13 @@ export function MakerOnboardingForm({ step: propStep = 0, setStep: propSetStep }
       registrationFile: null as File | null,
       idProofType: saved?.idProofType || 'aadhaar',
       idProofFile: null as File | null,
+      profilePhoto: null as File | null,
     };
   });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const { degreeFile, registrationFile, idProofFile, ...rest } = formData;
+      const { degreeFile, registrationFile, idProofFile, profilePhoto, ...rest } = formData;
       sessionStorage.setItem('makerOnboardingFormData', JSON.stringify(rest));
     }
   }, [formData]);
@@ -113,7 +114,8 @@ export function MakerOnboardingForm({ step: propStep = 0, setStep: propSetStep }
       const files = [
         { file: formData.degreeFile, key: 'degreeFileUrl' },
         { file: formData.registrationFile, key: 'registrationFileUrl' },
-        { file: formData.idProofFile, key: 'idProofFileUrl' }
+        { file: formData.idProofFile, key: 'idProofFileUrl' },
+        { file: formData.profilePhoto, key: 'profilePhotoUrl' }
       ];
 
       const uploadedUrls: Record<string, string> = {};
@@ -144,6 +146,7 @@ export function MakerOnboardingForm({ step: propStep = 0, setStep: propSetStep }
           registrationFileUrl: uploadedUrls.registrationFileUrl,
           idProofType: formData.idProofType,
           idProofFileUrl: uploadedUrls.idProofFileUrl,
+          profilePhotoUrl: uploadedUrls.profilePhotoUrl,
         }
       });
 
@@ -287,6 +290,25 @@ export function MakerOnboardingForm({ step: propStep = 0, setStep: propSetStep }
             <form noValidate onSubmit={step === 3 ? handleSubmit : (e) => { e.preventDefault(); handleNext(); }} className="flex-1 flex flex-col">
               {step === 1 && (
                 <div className="space-y-5 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <div className="flex flex-col items-center justify-center mb-6">
+                    <div className="relative w-24 h-24 rounded-full border-2 border-dashed border-zinc-300 dark:border-zinc-700 hover:border-blue-500 dark:hover:border-blue-400 bg-zinc-50 dark:bg-zinc-900 flex items-center justify-center overflow-hidden group cursor-pointer transition-colors shadow-sm">
+                      <input type="file" onChange={handleFileChange('profilePhoto')} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" accept="image/*" />
+                      {formData.profilePhoto ? (
+                        <>
+                          <img src={URL.createObjectURL(formData.profilePhoto)} alt="Profile Preview" className="w-full h-full object-cover" />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-white text-xs font-medium">Change</span>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="flex flex-col items-center text-zinc-400 group-hover:text-blue-500 transition-colors">
+                          <UploadCloud className="w-6 h-6 mb-1" />
+                          <span className="text-[10px] font-medium">Add Photo</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
                   <div className="flex gap-3">
                     <div className="flex-1">
                       <label className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1.5">First Name</label>

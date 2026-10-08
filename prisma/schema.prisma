@@ -25,6 +25,7 @@ enum VerificationStatus {
   pending
   verified
   rejected
+  hold
 }
 
 model User {
@@ -41,7 +42,8 @@ model User {
   updatedAt          DateTime           @updatedAt
   sessions           Session[]
   accounts           Account[]
-  maker              Maker?
+  maker              Maker?   @relation("MakerProfile")
+  reviewedMakers     Maker[]  @relation("Reviewer")
 
   @@unique([email])
   @@map("user")
@@ -110,10 +112,13 @@ model Marketplace {
 model Maker {
   id                  String   @id @default(cuid())
   userId              String   @unique
-  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user                User     @relation("MakerProfile", fields: [userId], references: [id], onDelete: Cascade)
+  reviewedById        String?
+  reviewedBy          User?    @relation("Reviewer", fields: [reviewedById], references: [id])
   firstName           String
   middleName          String?
   lastName            String
+  profilePhotoUrl     String?
   dob                 DateTime
   specialization      String
   registrationNumber  String

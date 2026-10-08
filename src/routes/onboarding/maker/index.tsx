@@ -31,7 +31,7 @@ function MakerOnboarding() {
       <div className="min-h-screen bg-zinc-50 dark:bg-black font-sans text-zinc-900 flex flex-col items-center justify-center p-6 text-center">
         <div className="bg-white p-6 rounded-lg shadow-md max-w-4xl w-full">
           <div className="w-96 h-96 mb-6 mx-auto">
-            <DotLottieReact src="/animations/Verify.lottie" autoplay loop />
+            <DotLottieReact src="/animations/verify.lottie" autoplay loop />
           </div>
           <div className='flex flex-col items-center justify-center -mt-16'>
             <h1 className="text-2xl md:text-3xl font-bold mb-4">Document Under Review</h1>

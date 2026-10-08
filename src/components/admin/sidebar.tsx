@@ -100,20 +100,13 @@ export default function AdminSidebar() {
                     <div className="flex items-center gap-3 p-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-150">
                         {/* Avatar / Blobatar */}
                         <div className="relative w-10 h-10 shrink-0 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shadow-xs">
-                            {userImage ? (
-                                <img
-                                    src={userImage}
-                                    alt={userName}
-                                    className="w-full h-full object-cover"
+
+                            <div className="w-full h-full scale-[1.05]">
+                                <Blobatar
+                                    name={userName || userEmail || 'Admin'}
+                                    animate="always"
                                 />
-                            ) : (
-                                <div className="w-full h-full scale-[1.05]">
-                                    <Blobatar
-                                        name={userName || userEmail || 'Admin'}
-                                        animate="always"
-                                    />
-                                </div>
-                            )}
+                            </div>
                         </div>
 
                         {/* Name and Email */}

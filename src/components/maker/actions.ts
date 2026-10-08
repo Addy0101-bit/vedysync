@@ -16,6 +16,7 @@ export const submitVerification = createServerFn({ method: 'POST' })
     registrationFileUrl: string;
     idProofType: string;
     idProofFileUrl: string;
+    profilePhotoUrl?: string;
   }) => data)
   .handler(async ({ data }) => {
     const headers = getRequestHeaders();
@@ -37,6 +38,7 @@ export const submitVerification = createServerFn({ method: 'POST' })
           registrationFileUrl: data.registrationFileUrl,
           idProofType: data.idProofType,
           idProofFileUrl: data.idProofFileUrl,
+          profilePhotoUrl: data.profilePhotoUrl,
         }
       }),
       prisma.user.update({

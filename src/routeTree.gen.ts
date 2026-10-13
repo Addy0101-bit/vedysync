@@ -19,12 +19,18 @@ import { Route as AuthLoginRouteImport } from './routes/auth/login'
 import { Route as AuthRolesRouteImport } from './routes/auth/roles'
 import { Route as AuthSignupRouteImport } from './routes/auth/signup'
 import { Route as DashboardAdminRouteRouteImport } from './routes/dashboard/admin/route'
+import { Route as DashboardMakerRouteRouteImport } from './routes/dashboard/maker/route'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as DashboardAdminIndexRouteImport } from './routes/dashboard/admin/index'
 import { Route as DashboardAdminReportRouteImport } from './routes/dashboard/admin/report'
 import { Route as DashboardAdminUserRouteImport } from './routes/dashboard/admin/user'
 import { Route as DashboardInvestorIndexRouteImport } from './routes/dashboard/investor/index'
 import { Route as DashboardMakerIndexRouteImport } from './routes/dashboard/maker/index'
+import { Route as DashboardMakerComplianceRouteImport } from './routes/dashboard/maker/compliance'
+import { Route as DashboardMakerMarketplaceRouteImport } from './routes/dashboard/maker/marketplace'
+import { Route as DashboardMakerMedicinesRouteImport } from './routes/dashboard/maker/medicines'
+import { Route as DashboardMakerSurveillanceRouteImport } from './routes/dashboard/maker/surveillance'
+import { Route as DashboardMakerTrialsRouteImport } from './routes/dashboard/maker/trials'
 import { Route as DashboardTesterIndexRouteImport } from './routes/dashboard/tester/index'
 import { Route as OnboardingMakerIndexRouteImport } from './routes/onboarding/maker/index'
 
@@ -78,6 +84,11 @@ const DashboardAdminRouteRoute = DashboardAdminRouteRouteImport.update({
   path: '/admin',
   getParentRoute: () => DashboardRouteRoute,
 } as any)
+const DashboardMakerRouteRoute = DashboardMakerRouteRouteImport.update({
+  id: '/maker',
+  path: '/maker',
+  getParentRoute: () => DashboardRouteRoute,
+} as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   id: '/api/auth/$',
   path: '/api/auth/$',
@@ -104,9 +115,37 @@ const DashboardInvestorIndexRoute = DashboardInvestorIndexRouteImport.update({
   getParentRoute: () => DashboardRouteRoute,
 } as any)
 const DashboardMakerIndexRoute = DashboardMakerIndexRouteImport.update({
-  id: '/maker/',
-  path: '/maker/',
-  getParentRoute: () => DashboardRouteRoute,
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardMakerRouteRoute,
+} as any)
+const DashboardMakerComplianceRoute =
+  DashboardMakerComplianceRouteImport.update({
+    id: '/compliance',
+    path: '/compliance',
+    getParentRoute: () => DashboardMakerRouteRoute,
+  } as any)
+const DashboardMakerMarketplaceRoute =
+  DashboardMakerMarketplaceRouteImport.update({
+    id: '/marketplace',
+    path: '/marketplace',
+    getParentRoute: () => DashboardMakerRouteRoute,
+  } as any)
+const DashboardMakerMedicinesRoute = DashboardMakerMedicinesRouteImport.update({
+  id: '/medicines',
+  path: '/medicines',
+  getParentRoute: () => DashboardMakerRouteRoute,
+} as any)
+const DashboardMakerSurveillanceRoute =
+  DashboardMakerSurveillanceRouteImport.update({
+    id: '/surveillance',
+    path: '/surveillance',
+    getParentRoute: () => DashboardMakerRouteRoute,
+  } as any)
+const DashboardMakerTrialsRoute = DashboardMakerTrialsRouteImport.update({
+  id: '/trials',
+  path: '/trials',
+  getParentRoute: () => DashboardMakerRouteRoute,
 } as any)
 const DashboardTesterIndexRoute = DashboardTesterIndexRouteImport.update({
   id: '/tester/',
@@ -125,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dashboard/admin': typeof DashboardAdminRouteRouteWithChildren
+  '/dashboard/maker': typeof DashboardMakerRouteRouteWithChildren
   '/api/uploadthing': typeof ApiUploadthingRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -133,6 +173,11 @@ export interface FileRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/admin/report': typeof DashboardAdminReportRoute
   '/dashboard/admin/user': typeof DashboardAdminUserRoute
+  '/dashboard/maker/compliance': typeof DashboardMakerComplianceRoute
+  '/dashboard/maker/marketplace': typeof DashboardMakerMarketplaceRoute
+  '/dashboard/maker/medicines': typeof DashboardMakerMedicinesRoute
+  '/dashboard/maker/surveillance': typeof DashboardMakerSurveillanceRoute
+  '/dashboard/maker/trials': typeof DashboardMakerTrialsRoute
   '/dashboard/admin/': typeof DashboardAdminIndexRoute
   '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
@@ -152,6 +197,11 @@ export interface FileRoutesByTo {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/admin/report': typeof DashboardAdminReportRoute
   '/dashboard/admin/user': typeof DashboardAdminUserRoute
+  '/dashboard/maker/compliance': typeof DashboardMakerComplianceRoute
+  '/dashboard/maker/marketplace': typeof DashboardMakerMarketplaceRoute
+  '/dashboard/maker/medicines': typeof DashboardMakerMedicinesRoute
+  '/dashboard/maker/surveillance': typeof DashboardMakerSurveillanceRoute
+  '/dashboard/maker/trials': typeof DashboardMakerTrialsRoute
   '/dashboard/admin': typeof DashboardAdminIndexRoute
   '/dashboard/investor': typeof DashboardInvestorIndexRoute
   '/dashboard/maker': typeof DashboardMakerIndexRoute
@@ -165,6 +215,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/dashboard/admin': typeof DashboardAdminRouteRouteWithChildren
+  '/dashboard/maker': typeof DashboardMakerRouteRouteWithChildren
   '/api/uploadthing': typeof ApiUploadthingRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/login': typeof AuthLoginRoute
@@ -173,6 +224,11 @@ export interface FileRoutesById {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/admin/report': typeof DashboardAdminReportRoute
   '/dashboard/admin/user': typeof DashboardAdminUserRoute
+  '/dashboard/maker/compliance': typeof DashboardMakerComplianceRoute
+  '/dashboard/maker/marketplace': typeof DashboardMakerMarketplaceRoute
+  '/dashboard/maker/medicines': typeof DashboardMakerMedicinesRoute
+  '/dashboard/maker/surveillance': typeof DashboardMakerSurveillanceRoute
+  '/dashboard/maker/trials': typeof DashboardMakerTrialsRoute
   '/dashboard/admin/': typeof DashboardAdminIndexRoute
   '/dashboard/investor/': typeof DashboardInvestorIndexRoute
   '/dashboard/maker/': typeof DashboardMakerIndexRoute
@@ -187,6 +243,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/dashboard/admin'
+    | '/dashboard/maker'
     | '/api/uploadthing'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -195,6 +252,11 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/dashboard/admin/report'
     | '/dashboard/admin/user'
+    | '/dashboard/maker/compliance'
+    | '/dashboard/maker/marketplace'
+    | '/dashboard/maker/medicines'
+    | '/dashboard/maker/surveillance'
+    | '/dashboard/maker/trials'
     | '/dashboard/admin/'
     | '/dashboard/investor/'
     | '/dashboard/maker/'
@@ -214,6 +276,11 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/dashboard/admin/report'
     | '/dashboard/admin/user'
+    | '/dashboard/maker/compliance'
+    | '/dashboard/maker/marketplace'
+    | '/dashboard/maker/medicines'
+    | '/dashboard/maker/surveillance'
+    | '/dashboard/maker/trials'
     | '/dashboard/admin'
     | '/dashboard/investor'
     | '/dashboard/maker'
@@ -226,6 +293,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/dashboard/admin'
+    | '/dashboard/maker'
     | '/api/uploadthing'
     | '/auth/forgot-password'
     | '/auth/login'
@@ -234,6 +302,11 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/dashboard/admin/report'
     | '/dashboard/admin/user'
+    | '/dashboard/maker/compliance'
+    | '/dashboard/maker/marketplace'
+    | '/dashboard/maker/medicines'
+    | '/dashboard/maker/surveillance'
+    | '/dashboard/maker/trials'
     | '/dashboard/admin/'
     | '/dashboard/investor/'
     | '/dashboard/maker/'
@@ -327,6 +400,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardAdminRouteRouteImport
       parentRoute: typeof DashboardRouteRoute
     }
+    '/dashboard/maker': {
+      id: '/dashboard/maker'
+      path: '/maker'
+      fullPath: '/dashboard/maker'
+      preLoaderRoute: typeof DashboardMakerRouteRouteImport
+      parentRoute: typeof DashboardRouteRoute
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -364,10 +444,45 @@ declare module '@tanstack/react-router' {
     }
     '/dashboard/maker/': {
       id: '/dashboard/maker/'
-      path: '/maker'
+      path: '/'
       fullPath: '/dashboard/maker/'
       preLoaderRoute: typeof DashboardMakerIndexRouteImport
-      parentRoute: typeof DashboardRouteRoute
+      parentRoute: typeof DashboardMakerRouteRoute
+    }
+    '/dashboard/maker/compliance': {
+      id: '/dashboard/maker/compliance'
+      path: '/compliance'
+      fullPath: '/dashboard/maker/compliance'
+      preLoaderRoute: typeof DashboardMakerComplianceRouteImport
+      parentRoute: typeof DashboardMakerRouteRoute
+    }
+    '/dashboard/maker/marketplace': {
+      id: '/dashboard/maker/marketplace'
+      path: '/marketplace'
+      fullPath: '/dashboard/maker/marketplace'
+      preLoaderRoute: typeof DashboardMakerMarketplaceRouteImport
+      parentRoute: typeof DashboardMakerRouteRoute
+    }
+    '/dashboard/maker/medicines': {
+      id: '/dashboard/maker/medicines'
+      path: '/medicines'
+      fullPath: '/dashboard/maker/medicines'
+      preLoaderRoute: typeof DashboardMakerMedicinesRouteImport
+      parentRoute: typeof DashboardMakerRouteRoute
+    }
+    '/dashboard/maker/surveillance': {
+      id: '/dashboard/maker/surveillance'
+      path: '/surveillance'
+      fullPath: '/dashboard/maker/surveillance'
+      preLoaderRoute: typeof DashboardMakerSurveillanceRouteImport
+      parentRoute: typeof DashboardMakerRouteRoute
+    }
+    '/dashboard/maker/trials': {
+      id: '/dashboard/maker/trials'
+      path: '/trials'
+      fullPath: '/dashboard/maker/trials'
+      preLoaderRoute: typeof DashboardMakerTrialsRouteImport
+      parentRoute: typeof DashboardMakerRouteRoute
     }
     '/dashboard/tester/': {
       id: '/dashboard/tester/'
@@ -401,17 +516,38 @@ const DashboardAdminRouteRouteChildren: DashboardAdminRouteRouteChildren = {
 const DashboardAdminRouteRouteWithChildren =
   DashboardAdminRouteRoute._addFileChildren(DashboardAdminRouteRouteChildren)
 
+interface DashboardMakerRouteRouteChildren {
+  DashboardMakerComplianceRoute: typeof DashboardMakerComplianceRoute
+  DashboardMakerMarketplaceRoute: typeof DashboardMakerMarketplaceRoute
+  DashboardMakerMedicinesRoute: typeof DashboardMakerMedicinesRoute
+  DashboardMakerSurveillanceRoute: typeof DashboardMakerSurveillanceRoute
+  DashboardMakerTrialsRoute: typeof DashboardMakerTrialsRoute
+  DashboardMakerIndexRoute: typeof DashboardMakerIndexRoute
+}
+
+const DashboardMakerRouteRouteChildren: DashboardMakerRouteRouteChildren = {
+  DashboardMakerComplianceRoute: DashboardMakerComplianceRoute,
+  DashboardMakerMarketplaceRoute: DashboardMakerMarketplaceRoute,
+  DashboardMakerMedicinesRoute: DashboardMakerMedicinesRoute,
+  DashboardMakerSurveillanceRoute: DashboardMakerSurveillanceRoute,
+  DashboardMakerTrialsRoute: DashboardMakerTrialsRoute,
+  DashboardMakerIndexRoute: DashboardMakerIndexRoute,
+}
+
+const DashboardMakerRouteRouteWithChildren =
+  DashboardMakerRouteRoute._addFileChildren(DashboardMakerRouteRouteChildren)
+
 interface DashboardRouteRouteChildren {
   DashboardAdminRouteRoute: typeof DashboardAdminRouteRouteWithChildren
+  DashboardMakerRouteRoute: typeof DashboardMakerRouteRouteWithChildren
   DashboardInvestorIndexRoute: typeof DashboardInvestorIndexRoute
-  DashboardMakerIndexRoute: typeof DashboardMakerIndexRoute
   DashboardTesterIndexRoute: typeof DashboardTesterIndexRoute
 }
 
 const DashboardRouteRouteChildren: DashboardRouteRouteChildren = {
   DashboardAdminRouteRoute: DashboardAdminRouteRouteWithChildren,
+  DashboardMakerRouteRoute: DashboardMakerRouteRouteWithChildren,
   DashboardInvestorIndexRoute: DashboardInvestorIndexRoute,
-  DashboardMakerIndexRoute: DashboardMakerIndexRoute,
   DashboardTesterIndexRoute: DashboardTesterIndexRoute,
 }
 

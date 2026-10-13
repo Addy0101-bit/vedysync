@@ -1,8 +1,29 @@
-import { Link } from '@tanstack/react-router'
-import { LayoutGrid, FileText, Users, } from 'lucide-react'
+"use client"
+
+import { Link, useRouter } from '@tanstack/react-router'
+import { LayoutGrid, FileText, Users, LogOut, ChevronRight, Loader2 } from 'lucide-react'
 import { authClient } from '#/lib/auth-client'
 import { Blobatar } from '@blobatar/react'
 import 'blobatar/motion.css'
+import { useState } from 'react'
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "#/components/ui/dropdown-menu"
+
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+} from "#/components/ui/alert-dialog"
 
 interface NavItem {
     label: string
@@ -30,10 +51,23 @@ const navItems: NavItem[] = [
 
 export default function AdminSidebar() {
     const { data: session, isPending } = authClient.useSession()
+    const [showLogoutAlert, setShowLogoutAlert] = useState(false)
+    const router = useRouter()
+
+    const [isLoggingOut, setIsLoggingOut] = useState(false)
 
     const userName = session?.user.name || 'Admin'
     const userEmail = session?.user.email || ''
-    const userImage = session?.user.image
+
+    const handleLogout = async () => {
+        setIsLoggingOut(true)
+        try {
+            await authClient.signOut()
+            router.navigate({ to: '/auth/login' })
+        } finally {
+            setIsLoggingOut(false)
+        }
+    }
 
     return (
         <aside
@@ -97,34 +131,59 @@ export default function AdminSidebar() {
                         </div>
                     </div>
                 ) : (
-                    <div className="flex items-center gap-3 p-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-150">
-                        {/* Avatar / Blobatar */}
-                        <div className="relative w-10 h-10 shrink-0 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shadow-xs">
+                    <>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger render={<div className="flex items-center gap-3 p-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 transition-colors duration-150 cursor-pointer" />}>
+                                {/* Avatar / Blobatar */}
+                                <div className="relative w-10 h-10 shrink-0 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 flex items-center justify-center shadow-xs">
+                                    <div className="w-full h-full scale-[1.05]">
+                                        <Blobatar
+                                            name={userName || userEmail || 'Admin'}
+                                            animate="always"
+                                        />
+                                    </div>
+                                </div>
 
-                            <div className="w-full h-full scale-[1.05]">
-                                <Blobatar
-                                    name={userName || userEmail || 'Admin'}
-                                    animate="always"
-                                />
-                            </div>
-                        </div>
+                                {/* Name and Email */}
+                                <div className="flex flex-col min-w-0 flex-1">
+                                    <span
+                                        title={userName}
+                                        className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate"
+                                    >
+                                        {userName}
+                                    </span>
+                                    <span
+                                        title={userEmail}
+                                        className="text-xs text-zinc-500 dark:text-zinc-400 truncate"
+                                    >
+                                        {userEmail}
+                                    </span>
+                                </div>
+                                <ChevronRight className='w-4 h-4 shrink-0 text-black dark:text-white' />
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end" className="w-56">
+                                <DropdownMenuItem className="text-red-600 cursor-pointer" onClick={() => setShowLogoutAlert(true)}>
+                                    <LogOut className="mr-2 h-4 w-4" />
+                                    <span>Log out</span>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
 
-                        {/* Name and Email */}
-                        <div className="flex flex-col min-w-0 flex-1">
-                            <span
-                                title={userName}
-                                className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate"
-                            >
-                                {userName}
-                            </span>
-                            <span
-                                title={userEmail}
-                                className="text-xs text-zinc-500 dark:text-zinc-400 truncate"
-                            >
-                                {userEmail}
-                            </span>
-                        </div>
-                    </div>
+                        <AlertDialog open={showLogoutAlert} onOpenChange={setShowLogoutAlert}>
+                            <AlertDialogContent>
+                                <AlertDialogHeader>
+                                    <AlertDialogTitle>Are you sure you want to log out?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        You will be redirected to the home page and will need to sign in again to access the admin dashboard.
+                                    </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                    <AlertDialogAction onClick={handleLogout} className="bg-red-600 text-white hover:bg-red-700 border-none" disabled={isLoggingOut}>{isLoggingOut ? <Loader2 className="animate-spin w-4 h-4" /> : 'Log out'}</AlertDialogAction>
+                                </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
+                    </>
                 )}
             </div>
         </aside>

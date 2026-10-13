@@ -143,7 +143,7 @@ function RouteComponent() {
                           <img src={maker.profilePhotoUrl} alt={maker.firstName} className="w-full h-full object-cover" />
                         ) : (
                           <div className="w-full h-full scale-110">
-                            <Blobatar name={maker.user.name || maker.firstName || 'User'} animate="never" />
+                            <Blobatar name={maker.user.name || maker.firstName || 'User'} animate="always" />
                           </div>
                         )}
                       </div>
